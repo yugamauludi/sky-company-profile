@@ -1,0 +1,307 @@
+// "use client";
+// import Link from "next/link";
+// import Image from "next/image";
+// import { useState } from "react";
+// import { useLanguage } from "@/context/LanguageContext";
+// import { commonTranslations } from "@/locales/common";
+
+// const Navbar = () => {
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+//   const { language, setLanguage } = useLanguage();
+
+//   const toggleMenu = () => {
+//     setIsMenuOpen(!isMenuOpen);
+//   };
+
+//   return (
+//     <nav className="bg-white shadow-md fixed w-full z-50">
+//       <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl">
+//         <div className="flex justify-between items-center h-16">
+//           <Link href="/" className="flex items-center">
+//             <Image
+//               src="/images/logo.png"
+//               alt="Sky Parking Logo"
+//               width={40}
+//               height={40}
+//               className="h-auto"
+//             />
+//           </Link>
+
+//           <div className="hidden md:flex items-center space-x-8">
+//             <Link href="/" className="text-gray-600 hover:text-gray-900">
+//               {commonTranslations.navbar.links[language].home}
+//             </Link>
+//             <Link href="/about" className="text-gray-600 hover:text-gray-900">
+//               {commonTranslations.navbar.links[language].about}
+//             </Link>
+//             <Link href="/services" className="text-gray-600 hover:text-gray-900">
+//               {commonTranslations.navbar.links[language].services}
+//             </Link>
+//             <Link href="/contact" className="text-gray-600 hover:text-gray-900">
+//               {commonTranslations.navbar.links[language].contact}
+//             </Link>
+//             <div className="flex rounded-md overflow-hidden">
+//               <button
+//                 onClick={() => setLanguage("id")}
+//                 className={`px-4 py-2 transition-colors ${
+//                   language === "id"
+//                     ? "bg-[#FFCC0D] text-black"
+//                     : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+//                 }`}
+//               >
+//                 ID
+//               </button>
+//               <button
+//                 onClick={() => setLanguage("en")}
+//                 className={`px-4 py-2 transition-colors ${
+//                   language === "en"
+//                     ? "bg-[#FFCC0D] text-black"
+//                     : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+//                 }`}
+//               >
+//                 EN
+//               </button>
+//             </div>
+//           </div>
+
+//           <div className="md:hidden">
+//             <button
+//               onClick={toggleMenu}
+//               className="text-gray-600 hover:text-gray-900 focus:outline-none"
+//             >
+//               <svg
+//                 className="h-6 w-6"
+//                 fill="none"
+//                 strokeLinecap="round"
+//                 strokeLinejoin="round"
+//                 strokeWidth="2"
+//                 viewBox="0 0 24 24"
+//                 stroke="currentColor"
+//               >
+//                 {isMenuOpen ? (
+//                   <path d="M6 18L18 6M6 6l12 12" />
+//                 ) : (
+//                   <path d="M4 6h16M4 12h16M4 18h16" />
+//                 )}
+//               </svg>
+//             </button>
+//           </div>
+//         </div>
+
+//         {/* Mobile menu */}
+//         {isMenuOpen && (
+//           <div className="md:hidden py-4">
+//             <div className="flex flex-col space-y-4 px-4">
+//               <Link href="/" className="text-gray-600 hover:text-gray-900">
+//                 {commonTranslations.navbar.links[language].home}
+//               </Link>
+//               <Link href="/about" className="text-gray-600 hover:text-gray-900">
+//                 {commonTranslations.navbar.links[language].about}
+//               </Link>
+//               <Link
+//                 href="/services"
+//                 className="text-gray-600 hover:text-gray-900"
+//               >
+//                 {commonTranslations.navbar.links[language].services}
+//               </Link>
+//               <Link
+//                 href="/contact"
+//                 className="text-gray-600 hover:text-gray-900"
+//               >
+//                 {commonTranslations.navbar.links[language].contact}
+//               </Link>
+//               <div className="flex rounded-md overflow-hidden w-fit">
+//                 <button
+//                   onClick={() => setLanguage("id")}
+//                   className={`px-4 py-2 transition-colors ${
+//                     language === "id"
+//                       ? "bg-[#FFCC0D] text-black"
+//                       : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+//                   }`}
+//                 >
+//                   ID
+//                 </button>
+//                 <button
+//                   onClick={() => setLanguage("en")}
+//                   className={`px-4 py-2 transition-colors ${
+//                     language === "en"
+//                       ? "bg-[#FFCC0D] text-black"
+//                       : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+//                   }`}
+//                 >
+//                   EN
+//                 </button>
+//               </div>
+//             </div>
+//           </div>
+//         )}
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { commonTranslations } from "@/locales/common";
+import { motion } from "framer-motion";
+
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { language, setLanguage } = useLanguage();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/80 backdrop-blur-md shadow-lg" : "bg-white"
+      }`}
+    >
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl">
+        <div className="flex justify-between items-center h-20">
+          <Link href="/" className="flex items-center space-x-3">
+            <Image
+              src="/images/logo.png"
+              alt="Sky Parking Logo"
+              width={45}
+              height={45}
+              className="h-auto hover:scale-110 transition-transform"
+            />
+            <span className="text-xl font-bold text-gray-800">SKY Parking</span>
+          </Link>
+
+          <div className="hidden md:flex items-center space-x-8">
+            {[
+              { href: "/", label: commonTranslations.navbar.links[language].home },
+              { href: "/about", label: commonTranslations.navbar.links[language].about },
+              { href: "/services", label: commonTranslations.navbar.links[language].services },
+              { href: "/contact", label: commonTranslations.navbar.links[language].contact },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="relative text-gray-600 hover:text-[#FFCC0D] transition-colors duration-300 py-2
+                  after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#FFCC0D] 
+                  after:left-0 after:-bottom-1 after:transition-all after:duration-300
+                  hover:after:w-full"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="flex rounded-full overflow-hidden border-2 border-[#FFCC0D]">
+              <button
+                onClick={() => setLanguage("id")}
+                className={`px-4 py-1.5 transition-colors duration-300 ${
+                  language === "id"
+                    ? "bg-[#FFCC0D] text-white font-medium"
+                    : "bg-transparent text-gray-600 hover:bg-[#FFCC0D]/10"
+                }`}
+              >
+                ID
+              </button>
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-4 py-1.5 transition-colors duration-300 ${
+                  language === "en"
+                    ? "bg-[#FFCC0D] text-white font-medium"
+                    : "bg-transparent text-gray-600 hover:bg-[#FFCC0D]/10"
+                }`}
+              >
+                EN
+              </button>
+            </div>
+          </div>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-gray-600 hover:text-[#FFCC0D] transition-colors"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {isMenuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </motion.button>
+        </div>
+
+        {/* Mobile menu */}
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: isMenuOpen ? 1 : 0, height: isMenuOpen ? "auto" : 0 }}
+          className="md:hidden overflow-hidden"
+        >
+          <div className="py-4 space-y-4">
+            {[
+              { href: "/", label: commonTranslations.navbar.links[language].home },
+              { href: "/about", label: commonTranslations.navbar.links[language].about },
+              { href: "/services", label: commonTranslations.navbar.links[language].services },
+              { href: "/contact", label: commonTranslations.navbar.links[language].contact },
+            ].map((link) => (
+              <motion.div
+                key={link.href}
+                whileHover={{ x: 10 }}
+                className="px-4"
+              >
+                <Link
+                  href={link.href}
+                  className="block text-gray-600 hover:text-[#FFCC0D] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
+            ))}
+            <div className="flex rounded-full overflow-hidden border-2 border-[#FFCC0D] w-fit mx-4">
+              <button
+                onClick={() => setLanguage("id")}
+                className={`px-4 py-1.5 transition-colors duration-300 ${
+                  language === "id"
+                    ? "bg-[#FFCC0D] text-white font-medium"
+                    : "bg-transparent text-gray-600 hover:bg-[#FFCC0D]/10"
+                }`}
+              >
+                ID
+              </button>
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-4 py-1.5 transition-colors duration-300 ${
+                  language === "en"
+                    ? "bg-[#FFCC0D] text-white font-medium"
+                    : "bg-transparent text-gray-600 hover:bg-[#FFCC0D]/10"
+                }`}
+              >
+                EN
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </motion.nav>
+  );
+};
+
+export default Navbar;
