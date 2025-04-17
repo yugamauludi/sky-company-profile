@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { aboutTranslations } from "@/locales/about";
-import { useLanguage } from "@/context/LanguageContext";
+import { aboutTranslations } from "@/src/locales/about";
+import { useLanguage } from "@/src/context/LanguageContext";
 
 export default function About() {
   const { language } = useLanguage();

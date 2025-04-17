@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { features } from "@/locales/features";
-import FeatureCard from "@/components/FeatureCard";
+import { features } from "@/src/locales/features";
+import FeatureCard from "@/src/components/FeatureCard";
 import { motion } from "framer-motion";
-import { useLanguage } from "@/context/LanguageContext";
-import { homeTranslations } from "@/locales/home";
+import { useLanguage } from "@/src/context/LanguageContext";
+import { homeTranslations } from "@/src/locales/home";
 
 const clients = [
   { src: "/images/siloam.jpeg", alt: "Client 1" },

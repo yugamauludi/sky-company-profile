@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import { useLanguage } from "@/context/LanguageContext";
-import { contactTranslations } from "@/locales/contact";
+import { useLanguage } from "@/src/context/LanguageContext";
+import { contactTranslations } from "@/src/locales/contact";
 import {motion} from "framer-motion";
 
 interface FormData {

@@ -1,8 +1,8 @@
 'use client';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import Image from "next/image";
-import { commonTranslations } from "@/locales/common";
-import { useLanguage } from "@/context/LanguageContext";
+import { commonTranslations } from "@/src/locales/common";
+import { useLanguage } from "@/src/context/LanguageContext";
 
 const Footer = () => {
   const { language } = useLanguage();

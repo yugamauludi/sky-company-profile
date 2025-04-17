@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useLanguage } from "@/context/LanguageContext";
-import { servicesTranslations } from "@/locales/services";
+import { useLanguage } from "@/src/context/LanguageContext";
+import { servicesTranslations } from "@/src/locales/services";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
