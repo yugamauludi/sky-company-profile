@@ -4,7 +4,6 @@
 
 _Website Profil Perusahaan Operator Parkir Profesional_
 
-[Demo](https://sky-parking.vercel.app) | [Dokumentasi](#dokumentasi) | [Instalasi](#instalasi) | [Teknologi](#teknologi) | [Kontribusi](#kontribusi)
 
 </div>
 
@@ -27,13 +26,12 @@ Website company profile ini dibangun menggunakan teknologi modern:
 - **Styling**: TailwindCSS
 - **Animations**: Framer Motion
 - **Internationalization**: i18n
-- **Deployment**: Vercel
 
 ## 💻 Instalasi
 
 1. Clone repositori
 ```bash
-git clone https://github.com/your-username/sky-company-profile.git
+git clone https://github.com/yugamauludi/sky-company-profile.git
 ```
 
 2. Install dependensi
@@ -62,9 +60,8 @@ Kami sangat menghargai kontribusi dari komunitas. Silakan baca [panduan kontribu
 
 ## 📞 Kontak
 
-- Alamat: Jl. Boulevard Gading Serpong, Ruko Alexandrite 2 No. 9, Gading Serpong, Tangerang, Banten 15810
-- Email: info@sky-parking.com
-- Telepon: +62 21 1234 5678
+- Alamat: Ruko pinangsia karawaci Office park blok H no 20, Lippo Village, Karawaci, Tangerang, Banten
+- Email: business.development@skyparking.co.id
 
 ## 📄 Lisensi
 
