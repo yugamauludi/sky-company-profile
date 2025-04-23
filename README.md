@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🅿️ Sky Parking - Company Profile
+# 🏢 Sky Parking - Company Profile
 
-_Solusi Parkir Modern untuk Masa Depan yang Lebih Baik_
+_Website Profil Perusahaan Operator Parkir Profesional_
 
 [Demo](https://sky-parking.vercel.app) | [Dokumentasi](#dokumentasi) | [Instalasi](#instalasi) | [Teknologi](#teknologi) | [Kontribusi](#kontribusi)
 
@@ -10,31 +10,30 @@ _Solusi Parkir Modern untuk Masa Depan yang Lebih Baik_
 
 ## 🌟 Tentang Sky Parking
 
-Sky Parking adalah solusi manajemen parkir modern yang menggabungkan teknologi canggih dengan pengalaman pengguna yang mulus. Kami menyediakan sistem parkir pintar yang memudahkan pengelolaan area parkir dan meningkatkan efisiensi operasional.
+Sky Parking adalah operator parkir terkemuka di Indonesia yang mengutamakan profesionalisme dan keunggulan layanan. Berkembang dari awal yang sederhana, kami terus berinovasi untuk memberikan kualitas terbaik dalam setiap aspek layanan parkir.
 
-### ✨ Fitur Utama
+### ✨ Fitur Website
 
-- 🎯 **Sistem Parkir Otomatis** - Manajemen kendaraan tanpa operator
-- 📱 **Aplikasi Mobile** - Akses mudah melalui smartphone
-- 💳 **Pembayaran Digital** - Integrasi dengan berbagai metode pembayaran
-- 📊 **Analitik Real-time** - Monitoring dan pelaporan langsung
-- 🔐 **Keamanan Terjamin** - Sistem pengawasan 24/7
+- 📱 **Responsif** - Tampilan yang optimal di semua perangkat
+- 🌐 **Multi Bahasa** - Dukungan Bahasa Indonesia dan Inggris
+- 🎨 **Desain Modern** - Antarmuka yang menarik dan profesional
+- 📊 **Informasi Lengkap** - Tentang perusahaan, layanan, dan kontak
 
 ## 🚀 Teknologi
 
-Proyek ini dibangun menggunakan teknologi modern:
+Website company profile ini dibangun menggunakan teknologi modern:
 
-- **Frontend**: Next.js 14, React, TailwindCSS
-- **Backend**: Node.js, Express
-- **Database**: PostgreSQL
-- **Authentication**: NextAuth.js
+- **Framework**: Next.js 14
+- **Styling**: TailwindCSS
+- **Animations**: Framer Motion
+- **Internationalization**: i18n
 - **Deployment**: Vercel
 
 ## 💻 Instalasi
 
 1. Clone repositori
 ```bash
-git clone https://github.com/your-username/sky-parking.git
+git clone https://github.com/your-username/sky-company-profile.git
 ```
 
 2. Install dependensi
@@ -44,13 +43,7 @@ npm install
 yarn install
 ```
 
-3. Konfigurasi environment
-```bash
-cp .env.example .env.local
-# Sesuaikan konfigurasi di .env.local
-```
-
-4. Jalankan development server
+3. Jalankan development server
 ```bash
 npm run dev
 # atau
@@ -61,7 +54,7 @@ Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
 
 ## 📖 Dokumentasi
 
-Untuk informasi lebih lanjut tentang penggunaan dan konfigurasi, silakan kunjungi [dokumentasi lengkap](https://docs.sky-parking.com).
+Untuk informasi lebih lanjut tentang penggunaan dan konfigurasi, silakan hubungi tim pengembang.
 
 ## 🤝 Kontribusi
 
@@ -69,9 +62,9 @@ Kami sangat menghargai kontribusi dari komunitas. Silakan baca [panduan kontribu
 
 ## 📞 Kontak
 
-- Website: [https://sky-parking.com](https://sky-parking.com)
+- Alamat: Jl. Boulevard Gading Serpong, Ruko Alexandrite 2 No. 9, Gading Serpong, Tangerang, Banten 15810
 - Email: info@sky-parking.com
-- LinkedIn: [Sky Parking](https://linkedin.com/company/sky-parking)
+- Telepon: +62 21 1234 5678
 
 ## 📄 Lisensi
 
