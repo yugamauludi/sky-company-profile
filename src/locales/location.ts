@@ -1,8 +1,11 @@
-// Example of locationTranslations with added properties
 export const locationTranslations = {
   title: {
     id: "Lokasi",
     en: "Locations",
+  },
+  description: {
+    id: "Temukan lokasi parkir SKY terdekat di kota Anda. Kami memiliki jaringan lokasi parkir yang luas dengan teknologi modern dan layanan profesional.",
+    en: "Find the nearest SKY parking location in your city. We have an extensive network of parking locations with modern technology and professional service.",
   },
   error: {
     signature: {
@@ -32,4 +35,8 @@ export const locationTranslations = {
     id: "Daftar Lokasi",
     en: "Location List",
   },
+  listDescription: {
+    id: "Daftar lengkap lokasi parkir SKY yang tersedia. Klik pada lokasi untuk melihat detail.",
+    en: "Complete list of available SKY parking locations. Click on a location to see details.",
+  }
 };
