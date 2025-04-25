@@ -9,14 +9,6 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-      <div className="absolute inset-0 overflow-hidden opacity-10">
-        <Image
-          src="/images/pattern.png"
-          alt="Background Pattern"
-          fill
-          className="object-cover"
-        />
-      </div>
       <div className="container mx-auto px-8 pt-16 pb-4 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 justify-between">
           <div className="space-y-6 max-w-xl">
