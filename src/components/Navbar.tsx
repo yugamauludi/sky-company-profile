@@ -46,6 +46,7 @@ const Navbar = () => {
               { href: "/", label: commonTranslations.navbar.links[language].home },
               { href: "/about", label: commonTranslations.navbar.links[language].about },
               { href: "/services", label: commonTranslations.navbar.links[language].services },
+              { href: "/location", label: commonTranslations.navbar.links[language].location },
               { href: "/contact", label: commonTranslations.navbar.links[language].contact },
             ].map((link) => (
               <Link
@@ -118,6 +119,7 @@ const Navbar = () => {
               { href: "/", label: commonTranslations.navbar.links[language].home },
               { href: "/about", label: commonTranslations.navbar.links[language].about },
               { href: "/services", label: commonTranslations.navbar.links[language].services },
+              { href: "/location", label: commonTranslations.navbar.links[language].location },
               { href: "/contact", label: commonTranslations.navbar.links[language].contact },
             ].map((link) => (
               <motion.div

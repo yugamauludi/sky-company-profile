@@ -5,13 +5,15 @@ export const commonTranslations = {
         home: "Beranda",
         about: "Tentang",
         services: "Layanan",
-        contact: "Kontak"
+        contact: "Kontak",
+        location: "Lokasi"
       },
       en: {
         home: "Home",
         about: "About",
         services: "Services",
-        contact: "Contact"
+        contact: "Contact",
+        location: "Location"
       }
     }
   },

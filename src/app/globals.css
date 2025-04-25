@@ -78,3 +78,49 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Leaflet Map Styles */
+.leaflet-container {
+  width: 20%;
+  height: 20%;
+}
+
+/* cluster-style.css */
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background-color: #3b82f6 !important; /* Tailwind blue-500 */
+  border: 3px solid #fff;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+.marker-cluster div {
+  background-color: transparent !important;
+}
+
+.location-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}

@@ -4,7 +4,6 @@ import Footer from "@/src/components/Footer";
 import Navbar from "@/src/components/Navbar";
 import { LanguageProvider } from '@/src/context/LanguageContext';
 
-
 export const metadata: Metadata = {
   title: "Sky Company",
   description: "Your trusted business partner",
@@ -22,15 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LanguageProvider>
-          <html lang="en">
-            <body>
-              <div className="min-h-screen flex flex-col">
-                <Navbar />
-                <main className="flex-grow pt-16">{children}</main>
-                <Footer />
-              </div>
-            </body>
-          </html>
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <main className="flex-grow pt-16">{children}</main>
+            <Footer />
+          </div>
         </LanguageProvider>
       </body>
     </html>
