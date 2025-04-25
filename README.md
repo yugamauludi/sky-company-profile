@@ -4,7 +4,6 @@
 
 _Website Profil Perusahaan Operator Parkir Profesional_
 
-
 </div>
 
 ## 🌟 Tentang Sky Parking
@@ -17,6 +16,8 @@ Sky Parking adalah operator parkir terkemuka di Indonesia yang mengutamakan prof
 - 🌐 **Multi Bahasa** - Dukungan Bahasa Indonesia dan Inggris
 - 🎨 **Desain Modern** - Antarmuka yang menarik dan profesional
 - 📊 **Informasi Lengkap** - Tentang perusahaan, layanan, dan kontak
+- 📍 **Peta Lokasi** - Fitur interaktif untuk menemukan lokasi parkir terdekat
+- 🔍 **Pencarian Lokasi** - Kemudahan mencari lokasi parkir berdasarkan nama atau alamat
 
 ## 🚀 Teknologi
 
@@ -26,6 +27,7 @@ Website company profile ini dibangun menggunakan teknologi modern:
 - **Styling**: TailwindCSS
 - **Animations**: Framer Motion
 - **Internationalization**: i18n
+- **Maps**: Leaflet dengan MarkerCluster
 
 ## 💻 Instalasi
 
