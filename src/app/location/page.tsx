@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import dynamic from 'next/dynamic';
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import { useEffect, useState } from "react";
@@ -10,18 +9,12 @@ import type { Location } from "@/src/types/location";
 import { fetchLocations } from "@/src/services/locationService";
 import SearchLocation from "@/src/components/location/SearchLocation";
 import LocationCard from "@/src/components/location/LocationCard";
+import dynamic from 'next/dynamic';
 
-// Import peta secara dinamis dengan SSR dinonaktifkan
-const DynamicMap = dynamic(
-  () => import('@/src/components/location/LocationMap'),
-  { 
-    ssr: false,
-    loading: () => (
-      <div className="md:col-span-2 h-[600px] bg-gray-100 rounded-lg flex items-center justify-center">
-        <p>Memuat peta...</p>
-      </div>
-    )
-  }
+// Dynamically import the LocationMap component with ssr disabled
+const LocationMap = dynamic(
+  () => import("@/src/components/location/LocationMap"),
+  { ssr: false }
 );
 
 export default function Location() {
@@ -100,7 +93,7 @@ export default function Location() {
               )}
             </div>
           </div>
-          <DynamicMap locations={filteredLocations} />
+          <LocationMap locations={filteredLocations} />
         </div>
       </div>
     </div>
