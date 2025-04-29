@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import "leaflet/dist/leaflet.css";
-import { Icon } from "leaflet";
+// REMOVE these lines from here:
+// import "leaflet/dist/leaflet.css";
+// import { Icon } from "leaflet";
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import { locationTranslations } from "@/src/locales/location";
 import type { Location } from "@/src/types/location";
-// import { fetchLocations } from "@/src/services/locationService";
+import { fetchLocations } from "@/src/services/locationService";
 import SearchLocation from "@/src/components/location/SearchLocation";
 import LocationCard from "@/src/components/location/LocationCard";
 import dynamic from 'next/dynamic';
@@ -27,46 +28,47 @@ export default function Location() {
 
   useEffect(() => {
     // Fix untuk gambar marker di Next.js
-    if (typeof window !== 'undefined') {
-      delete (Icon.Default.prototype as any)._getIconUrl;
-      Icon.Default.mergeOptions({
-        iconRetinaUrl: "/icons/marker-icon-2x.png",
-        iconUrl: "/icons/marker-icon.png",
-        shadowUrl: "/icons/marker-shadow.png",
-      });
-    }
+    // if (typeof window !== 'undefined') {
+    //   delete (Icon.Default.prototype as any)._getIconUrl;
+    //   Icon.Default.mergeOptions({
+    //     iconRetinaUrl: "/icons/marker-icon-2x.png",
+    //     iconUrl: "/icons/marker-icon.png",
+    //     shadowUrl: "/icons/marker-shadow.png",
+    //   });
+    // }
 
     const getLocations = async () => {
       try {
         setIsLoading(true);
         setError(null);
-        // const data = await fetchLocations(language);
+        const data = await fetchLocations(language);
+        console.log("API DATA:", data);
 
         // Pengecekan data undefined atau null
-        // if (!data) {
-        //   setLocations([]);
-        //   setError('Data lokasi tidak tersedia');
-        //   return;
-        // }
+        if (!data) {
+          setLocations([]);
+          setError('Data lokasi tidak tersedia');
+          return;
+        }
 
         // Pengecekan apakah data adalah array
-        // if (!Array.isArray(data)) {
-        //   setLocations([]);
-        //   setError('Format data tidak valid');
-        //   return;
-        // }
+        if (!Array.isArray(data)) {
+          setLocations([]);
+          setError('Format data tidak valid');
+          return;
+        }
 
-        // const transformedLocations = data.map((loc: any) => ({
-        //   name: loc?.location_name ?? 'Nama tidak tersedia',
-        //   position: [
-        //     loc?.coordinate?.latitude ?? 0,
-        //     loc?.coordinate?.longitude ?? 0
-        //   ] as [number, number], // Ensure position is a LatLngTuple
-        //   address: loc?.address ?? 'Alamat tidak tersedia',
-        //   code: loc?.location_code ?? 'Kode tidak tersedia',
-        // }));
+        const transformedLocations = data.map((loc: any) => ({
+          name: loc?.location_name ?? 'Nama tidak tersedia',
+          position: [
+            loc?.coordinate?.latitude ?? 0,
+            loc?.coordinate?.longitude ?? 0
+          ] as [number, number], // Ensure position is a LatLngTuple
+          address: loc?.address ?? 'Alamat tidak tersedia',
+          code: loc?.location_code ?? 'Kode tidak tersedia',
+        }));
 
-        // setLocations(transformedLocations);
+        setLocations(transformedLocations);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
         setError('Terjadi kesalahan saat mengambil data lokasi');

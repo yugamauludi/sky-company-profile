@@ -4,9 +4,9 @@ const fetchLocations = async (language: string) => {
     const clientKey = process.env.NEXT_PUBLIC_SKY_CLIENT_KEY;
     const secretKey = process.env.NEXT_PUBLIC_SKY_SECRET_KEY;
     const baseUrl = process.env.NEXT_PUBLIC_SKY_API_URL;
-    const timestamp = "2025-02-21T15:39:42+07:00";
+    const timestamp = process.env.NEXT_PUBLIC_SKY_TIME_STAMP;
 
-    const signatureResponse = await fetch(
+    const generateSignatureResponse = await fetch(
       `${baseUrl}/v1/partner/generate-signature`,
       {
         method: "POST",
@@ -14,17 +14,17 @@ const fetchLocations = async (language: string) => {
           "Content-Type": "application/json",
           clientkey: clientKey || "",
           secretkey: secretKey || "",
-          timestamp: timestamp,
+          timestamp: timestamp || "",
         },
         body: JSON.stringify({}),
       }
     );
 
-    if (!signatureResponse.ok) {
+    if (!generateSignatureResponse.ok) {
       throw new Error("Signature error");
     }
 
-    const signatureData = await signatureResponse.json();
+    const signatureData = await generateSignatureResponse.json();
 
     const locationsResponse = await fetch(
       `${baseUrl}/v1/partner/get-alllocation`,
@@ -34,8 +34,8 @@ const fetchLocations = async (language: string) => {
           "Content-Type": "application/json",
           clientkey: clientKey || "",
           secretkey: secretKey || "",
-          timestamp: timestamp,
-          signature: signatureData.signature,
+          timestamp: timestamp || "",
+          signature: signatureData.signature || "",
         },
         body: JSON.stringify({}),
       }

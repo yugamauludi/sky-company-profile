@@ -1,13 +1,27 @@
+"use client";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { Location } from "@/src/types/location";
 import "leaflet/dist/leaflet.css";
+import { useEffect } from "react";
+import { Icon } from "leaflet";
 
 interface LocationMapProps {
   locations: Location[];
 }
 
 export default function LocationMap({ locations }: LocationMapProps) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      delete (Icon.Default.prototype as any)._getIconUrl;
+      Icon.Default.mergeOptions({
+        iconRetinaUrl: "/icons/marker-icon-2x.png",
+        iconUrl: "/icons/marker-icon.png",
+        shadowUrl: "/icons/marker-shadow.png",
+      });
+    }
+  })
   return (
     <div className="md:col-span-2 h-[600px] w-full rounded-xl overflow-hidden shadow-lg relative z-0">
       <MapContainer
