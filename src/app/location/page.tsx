@@ -9,7 +9,13 @@ import type { Location } from "@/src/types/location";
 import { fetchLocations } from "@/src/services/locationService";
 import SearchLocation from "@/src/components/location/SearchLocation";
 import LocationCard from "@/src/components/location/LocationCard";
-import LocationMap from "@/src/components/location/LocationMap";
+import dynamic from 'next/dynamic';
+
+// Dynamically import the LocationMap component with ssr disabled
+const LocationMap = dynamic(
+  () => import("@/src/components/location/LocationMap"),
+  { ssr: false }
+);
 
 export default function Location() {
   const [locations, setLocations] = useState<Location[]>([]);
