@@ -14,7 +14,7 @@ const Navbar = () => {
 
   useEffect(() => {
     // Only run on client side
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" || window !== undefined) {
       const handleScroll = () => {
         setScrolled(window.scrollY > 20);
       };
