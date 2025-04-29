@@ -21,26 +21,59 @@ export default function Location() {
   const [locations, setLocations] = useState<Location[]>([]);
   const [filteredLocations, setFilteredLocations] = useState<Location[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const { language } = useLanguage();
 
   useEffect(() => {
     // Fix untuk gambar marker di Next.js
-    delete (Icon.Default.prototype as any)._getIconUrl;
-    Icon.Default.mergeOptions({
-      iconRetinaUrl: "/icons/marker-icon-2x.png",
-      iconUrl: "/icons/marker-icon.png",
-      shadowUrl: "/icons/marker-shadow.png",
-    });
+    if (typeof window !== 'undefined') {
+      delete (Icon.Default.prototype as any)._getIconUrl;
+      Icon.Default.mergeOptions({
+        iconRetinaUrl: "/icons/marker-icon-2x.png",
+        iconUrl: "/icons/marker-icon.png",
+        shadowUrl: "/icons/marker-shadow.png",
+      });
+    }
 
     const getLocations = async () => {
-      const data = await fetchLocations(language);
-      const transformedLocations = data.map((loc: any) => ({
-        name: loc.location_name,
-        position: [loc.coordinate.latitude, loc.coordinate.longitude],
-        address: loc.address,
-        code: loc.location_code,
-      }));
-      setLocations(transformedLocations);
+      try {
+        setIsLoading(true);
+        setError(null);
+        const data = await fetchLocations(language);
+
+        // Pengecekan data undefined atau null
+        if (!data) {
+          setLocations([]);
+          setError('Data lokasi tidak tersedia');
+          return;
+        }
+
+        // Pengecekan apakah data adalah array
+        if (!Array.isArray(data)) {
+          setLocations([]);
+          setError('Format data tidak valid');
+          return;
+        }
+
+        const transformedLocations = data.map((loc: any) => ({
+          name: loc?.location_name ?? 'Nama tidak tersedia',
+          position: [
+            loc?.coordinate?.latitude ?? 0,
+            loc?.coordinate?.longitude ?? 0
+          ] as [number, number], // Ensure position is a LatLngTuple
+          address: loc?.address ?? 'Alamat tidak tersedia',
+          code: loc?.location_code ?? 'Kode tidak tersedia',
+        }));
+
+        setLocations(transformedLocations);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (err) {
+        setError('Terjadi kesalahan saat mengambil data lokasi');
+        setLocations([]);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     getLocations();
@@ -53,6 +86,26 @@ export default function Location() {
     );
     setFilteredLocations(filtered);
   }, [locations, searchTerm]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen py-16 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-gray-600">Memuat data lokasi...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen py-16 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600">{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen py-16">
