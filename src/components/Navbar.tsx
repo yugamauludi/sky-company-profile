@@ -13,11 +13,16 @@ const Navbar = () => {
   const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Only run on client side
+    if (typeof window !== 'undefined') {
+      const handleScroll = () => {
+        setScrolled(window.scrollY > 20);
+      };
+      window.addEventListener("scroll", handleScroll);
+      // Initial check
+      handleScroll();
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   return (
