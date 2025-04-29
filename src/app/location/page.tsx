@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+import dynamic from 'next/dynamic';
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import { useEffect, useState } from "react";
@@ -9,7 +10,19 @@ import type { Location } from "@/src/types/location";
 import { fetchLocations } from "@/src/services/locationService";
 import SearchLocation from "@/src/components/location/SearchLocation";
 import LocationCard from "@/src/components/location/LocationCard";
-import LocationMap from "@/src/components/location/LocationMap";
+
+// Dynamically import the map component
+const DynamicMap = dynamic(
+  () => import('@/src/components/location/LocationMap'),
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="md:col-span-2 h-[600px] w-full rounded-xl overflow-hidden shadow-lg relative z-0 bg-gray-100 flex items-center justify-center">
+        <div className="text-gray-500">Memuat peta...</div>
+      </div>
+    )
+  }
+);
 
 export default function Location() {
   const [locations, setLocations] = useState<Location[]>([]);
@@ -35,6 +48,7 @@ export default function Location() {
         code: loc.location_code,
       }));
       setLocations(transformedLocations);
+      setFilteredLocations(transformedLocations);
     };
 
     getLocations();
@@ -87,7 +101,9 @@ export default function Location() {
               )}
             </div>
           </div>
-          <LocationMap locations={filteredLocations} />
+          
+          {/* Gunakan DynamicMap sebagai pengganti LocationMap langsung */}
+          <DynamicMap locations={filteredLocations} />
         </div>
       </div>
     </div>
