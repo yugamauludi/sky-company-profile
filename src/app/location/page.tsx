@@ -42,7 +42,6 @@ export default function Location() {
         setIsLoading(true);
         setError(null);
         const data = await fetchLocations(language);
-        console.log("API DATA:", data);
 
         // Pengecekan data undefined atau null
         if (!data) {
