@@ -2,36 +2,34 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import { commonTranslations } from "@/src/locales/common";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  // const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage } = useLanguage();
 
-  useEffect(() => {
-    // Only run on client side
-    if (typeof window !== 'undefined') {
-      const handleScroll = () => {
-        setScrolled(window.scrollY > 20);
-      };
-      window.addEventListener("scroll", handleScroll);
-      // Initial check
-      handleScroll();
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Only run on client side
+  //   if (typeof window !== 'undefined') {
+  //     const handleScroll = () => {
+  //       setScrolled(window.scrollY > 20);
+  //     };
+  //     window.addEventListener("scroll", handleScroll);
+  //     // Initial check
+  //     handleScroll();
+  //     return () => window.removeEventListener("scroll", handleScroll);
+  //   }
+  // }, []);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/80 backdrop-blur-md shadow-lg" : "bg-white"
-      }`}
+      className="fixed w-full z-50 transition-all duration-300 bg-white"
     >
       <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl">
         <div className="flex justify-between items-center h-20">
