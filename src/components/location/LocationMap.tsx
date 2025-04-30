@@ -38,13 +38,14 @@ export default function LocationMap({ locations, selectedPosition, className }: 
   }, [selectedPosition]);
 
   return (
-    <div className={className || "md:col-span-2 h-[600px] w-full rounded-xl overflow-hidden shadow-lg relative z-0"}>
+    <div className={className || "md:col-span-2 h-[600px] w-full rounded-xl overflow-hidden shadow-lg relative"} style={{ zIndex: 0 }}>
       <MapContainer
         ref={mapRef}
         center={[-2.5489, 118.0149]}
         zoom={5}
         scrollWheelZoom={true}
         style={{ height: "100%", width: "100%" }}
+        className="z-[0]"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
