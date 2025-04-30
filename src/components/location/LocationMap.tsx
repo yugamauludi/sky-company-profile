@@ -3,14 +3,19 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { Location } from "@/src/types/location";
 import "leaflet/dist/leaflet.css";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Icon } from "leaflet";
 
 interface LocationMapProps {
   locations: Location[];
+  selectedPosition?: [number, number] | null;
+  className?: string;
 }
 
-export default function LocationMap({ locations }: LocationMapProps) {
+export default function LocationMap({ locations, selectedPosition, className }: LocationMapProps) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const mapRef = useRef<any>(null);
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -21,10 +26,21 @@ export default function LocationMap({ locations }: LocationMapProps) {
         shadowUrl: "/icons/marker-shadow.png",
       });
     }
-  })
+  }, []);
+
+  useEffect(() => {
+    if (selectedPosition && mapRef.current) {
+      const map = mapRef.current;
+      map.flyTo(selectedPosition, 15, {
+        duration: 1.5
+      });
+    }
+  }, [selectedPosition]);
+
   return (
-    <div className="md:col-span-2 h-[600px] w-full rounded-xl overflow-hidden shadow-lg relative z-0">
+    <div className={className || "md:col-span-2 h-[600px] w-full rounded-xl overflow-hidden shadow-lg relative z-0"}>
       <MapContainer
+        ref={mapRef}
         center={[-2.5489, 118.0149]}
         zoom={5}
         scrollWheelZoom={true}

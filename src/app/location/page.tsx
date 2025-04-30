@@ -25,6 +25,7 @@ export default function Location() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { language } = useLanguage();
+  const [selectedPosition, setSelectedPosition] = useState<[number, number] | null>(null);
 
   useEffect(() => {
     // Fix untuk gambar marker di Next.js
@@ -138,7 +139,16 @@ export default function Location() {
             <div className="space-y-4">
               {filteredLocations.length > 0 ? (
                 filteredLocations.map((location, index) => (
-                  <LocationCard key={index} location={location} />
+                  <div 
+                    key={index} 
+                    onClick={() => {
+                      const [lat, lng] = location.position;
+                      setSelectedPosition([lat, lng]);
+                    }}
+                    className="cursor-pointer hover:opacity-80 transition-opacity"
+                  >
+                    <LocationCard location={location} />
+                  </div>
                 ))
               ) : (
                 <p className="text-gray-500 text-center">
@@ -147,7 +157,11 @@ export default function Location() {
               )}
             </div>
           </div>
-          <LocationMap locations={filteredLocations} />
+          <LocationMap 
+            locations={filteredLocations} 
+            selectedPosition={selectedPosition}
+            className="md:col-span-2 h-[600px] rounded-lg overflow-hidden"
+          />
         </div>
       </div>
     </div>
