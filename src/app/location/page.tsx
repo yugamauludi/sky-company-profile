@@ -10,7 +10,7 @@ import type { Location } from "@/src/types/location";
 import { fetchLocations } from "@/src/services/locationService";
 import SearchLocation from "@/src/components/location/SearchLocation";
 import LocationCard from "@/src/components/location/LocationCard";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 // Dynamically import the LocationMap component with ssr disabled
 const LocationMap = dynamic(
@@ -25,7 +25,9 @@ export default function Location() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { language } = useLanguage();
-  const [selectedPosition, setSelectedPosition] = useState<[number, number] | null>(null);
+  const [selectedPosition, setSelectedPosition] = useState<
+    [number, number] | null
+  >(null);
 
   useEffect(() => {
     // Fix untuk gambar marker di Next.js
@@ -47,31 +49,31 @@ export default function Location() {
         // Pengecekan data undefined atau null
         if (!data) {
           setLocations([]);
-          setError('Data lokasi tidak tersedia');
+          setError("Data lokasi tidak tersedia");
           return;
         }
 
         // Pengecekan apakah data adalah array
         if (!Array.isArray(data)) {
           setLocations([]);
-          setError('Format data tidak valid');
+          setError("Format data tidak valid");
           return;
         }
 
         const transformedLocations = data.map((loc: any) => ({
-          name: loc?.location_name ?? 'Nama tidak tersedia',
+          name: loc?.location_name ?? "Nama tidak tersedia",
           position: [
             loc?.coordinate?.latitude ?? 0,
-            loc?.coordinate?.longitude ?? 0
+            loc?.coordinate?.longitude ?? 0,
           ] as [number, number], // Ensure position is a LatLngTuple
-          address: loc?.address ?? 'Alamat tidak tersedia',
-          code: loc?.location_code ?? 'Kode tidak tersedia',
+          address: loc?.address ?? "Alamat tidak tersedia",
+          code: loc?.location_code ?? "Kode tidak tersedia",
         }));
 
         setLocations(transformedLocations);
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
-        setError('Terjadi kesalahan saat mengambil data lokasi');
+        setError("Terjadi kesalahan saat mengambil data lokasi");
         setLocations([]);
       } finally {
         setIsLoading(false);
@@ -82,9 +84,10 @@ export default function Location() {
   }, [language]);
 
   useEffect(() => {
-    const filtered = locations.filter((location) =>
-      location.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      location.address.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = locations.filter(
+      (location) =>
+        location.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        location.address.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredLocations(filtered);
   }, [locations, searchTerm]);
@@ -93,7 +96,14 @@ export default function Location() {
     return (
       <div className="min-h-screen py-16 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-600">Memuat data lokasi...</p>
+          <div className="flex justify-center items-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#FFCC0D] mb-4"></div>
+          </div>
+          <p className="text-gray-600 animate-pulse">
+            {language === "id"
+              ? "Memuat data lokasi..."
+              : "Loading locations..."}
+          </p>
         </div>
       </div>
     );
@@ -115,7 +125,7 @@ export default function Location() {
         <h1 className="text-4xl font-bold text-center mb-4">
           {locationTranslations.title[language]}
         </h1>
-        
+
         {/* Added description section */}
         <div className="text-center mb-8 max-w-2xl mx-auto">
           <p className="text-gray-600">
@@ -139,8 +149,8 @@ export default function Location() {
             <div className="space-y-4">
               {filteredLocations.length > 0 ? (
                 filteredLocations.map((location, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     onClick={() => {
                       const [lat, lng] = location.position;
                       setSelectedPosition([lat, lng]);
@@ -157,8 +167,8 @@ export default function Location() {
               )}
             </div>
           </div>
-          <LocationMap 
-            locations={filteredLocations} 
+          <LocationMap
+            locations={filteredLocations}
             selectedPosition={selectedPosition}
             className="md:col-span-2 h-[600px] rounded-lg overflow-hidden"
           />
