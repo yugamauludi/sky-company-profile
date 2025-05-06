@@ -31,4 +31,4 @@ COPY --from=builder /app/src ./src
 EXPOSE 3000
 ENV PORT 3000
 
-CMD ["npm", "run", "start"]
+CMD ["node", "server.js"]
