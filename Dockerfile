@@ -27,4 +27,4 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/next.config.ts ./
 
 EXPOSE 4002
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
