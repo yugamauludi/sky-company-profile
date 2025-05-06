@@ -1,34 +1,43 @@
-# Step 1: Install dependencies
-FROM node:20-alpine AS deps
+# Gunakan node sebagai base image
+FROM node:18 as build
+
+# Set working directory
 WORKDIR /app
 
-# Salin file penting saja untuk install dependensi
+# Salin package.json dan package-lock.json untuk instalasi dependensi
 COPY package*.json ./
-RUN npm i
 
-# Step 2: Build app
-FROM node:20-alpine AS builder
-WORKDIR /app
-ENV NODE_ENV production
+# Install dependensi
+RUN npm install
 
-
-COPY --from=deps /app/node_modules ./node_modules
+# Salin semua file proyek ke dalam container
 COPY . .
+
+# Build proyek React
 RUN npm run build
 
-# Step 3: Jalankan app
-FROM node:20-alpine AS runner
+# Production stage
+FROM node:18
+
+# Set working directory
 WORKDIR /app
 
-ENV NODE_ENV=production
+# Salin hasil build proyek React ke dalam direktori server Express
+COPY --from=build /app/build /app/public
 
-# Copy necessary files only
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/src ./src
+# Salin file sertifikat SSL ke dalam container
+COPY certificate.crt /app/certificate.crt
+COPY private.key /app/private.key
 
-EXPOSE 3000
-ENV PORT 3000
+# Salin file server.js ke dalam container
+COPY server.js /app/server.js
 
+# Install Express
+RUN npm install express
+
+# Expose port 443 untuk HTTPS
+EXPOSE 80
+EXPOSE 443
+
+# Perintah untuk menjalankan server Express dengan HTTPS
 CMD ["node", "server.js"]
