@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Salin file penting saja untuk install dependensi
 COPY package*.json ./
-RUN npm ci
+RUN npm i
 
 # Step 2: Build app
 FROM node:20-alpine AS builder
@@ -31,4 +31,4 @@ COPY --from=builder /app/src ./src
 EXPOSE 3000
 ENV PORT 3000
 
-CMD ["node", "server.js"]
+CMD ["npm", "run", "start"]
