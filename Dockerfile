@@ -14,7 +14,7 @@ ENV NODE_ENV production
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm build
+RUN npm run build
 
 # Step 3: Jalankan app
 FROM node:20-alpine AS runner
