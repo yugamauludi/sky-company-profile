@@ -26,7 +26,7 @@ const partners = [
   { src: "/icons/logo_gopay.png", alt: "Partner 6" },
   { src: "/icons/logo_linkaja.png", alt: "Partner 7" },
   { src: "/icons/ovo_logo.png", alt: "Partner 8" },
-]
+];
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -41,22 +41,28 @@ export default function Home() {
   }, []);
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow">
+      <main className="flex-grow relative">
         {/* Hero Section */}
-        <div
-          className="min-h-[500px] flex items-center relative"
-          style={{
-            backgroundImage: 'url("/images/hero.jpg")',
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
+        <div className="min-h-[80vh] flex items-center relative overflow-hidden">
+          {/* Video Background */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute top-0 left-0 w-full h-full object-cover"
+          >
+            <source src="/videos/hero-section-home-page.mp4" type="video/mp4" />
+          </video>
+
+          {/* Gradient Overlay */}
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/30 via-transparent to-black/90"></div>
+
           <section
-            className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl"
+            className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl relative z-10"
             id="homeTitle"
           >
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -64,7 +70,7 @@ export default function Home() {
             >
               {homeTranslations.hero.title[language]}
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -75,52 +81,63 @@ export default function Home() {
           </section>
         </div>
 
-        {/* Features Section */}
-        <section className="py-16">
+        {/* Features Section dengan Split Level */}
+        <section className="relative -mt-24 z-20 pb-16">
           <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="text-center mb-12"
+              className="bg-white rounded-3xl shadow-2xl p-12"
             >
-              <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-3xl md:text-4xl font-bold mb-4"
-              >
-                {homeTranslations.features.title[language]}
-              </motion.h2>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-                className="text-xl text-gray-600"
-              >
-                {homeTranslations.features.subtitle[language]}
-              </motion.p>
+              <motion.div className="text-center mb-12">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                  className="text-3xl md:text-4xl font-bold mb-4"
+                >
+                  {homeTranslations.features.title[language]}
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.4 }}
+                  className="text-xl text-gray-600"
+                >
+                  {homeTranslations.features.subtitle[language]}
+                </motion.p>
+              </motion.div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {features[language].map((feature, index: number) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <FeatureCard
+                      key={index}
+                      icon={feature.icon}
+                      title={feature.title}
+                      description={feature.description}
+                    />
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {features[language].map((feature, index: number) => (
-                <FeatureCard
-                  key={index}
-                  icon={feature.icon}
-                  title={feature.title}
-                  description={feature.description}
-                />
-              ))}
-            </div>
           </div>
         </section>
 
         {/* Partners Section */}
         <section className="py-16">
           <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -136,11 +153,11 @@ export default function Home() {
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ 
+                  transition={{
                     duration: 0.5,
                     delay: index * 0.1,
                     type: "spring",
-                    stiffness: 100
+                    stiffness: 100,
                   }}
                   whileHover={{ scale: 1.1 }}
                   className="flex items-center justify-center"

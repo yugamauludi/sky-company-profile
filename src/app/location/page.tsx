@@ -1,8 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-// REMOVE these lines from here:
-// import "leaflet/dist/leaflet.css";
-// import { Icon } from "leaflet";
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import { locationTranslations } from "@/src/locales/location";
@@ -12,7 +9,6 @@ import SearchLocation from "@/src/components/location/SearchLocation";
 import LocationCard from "@/src/components/location/LocationCard";
 import dynamic from "next/dynamic";
 
-// Dynamically import the LocationMap component with ssr disabled
 const LocationMap = dynamic(
   () => import("@/src/components/location/LocationMap"),
   { ssr: false }
@@ -30,15 +26,6 @@ export default function Location() {
   >(null);
 
   useEffect(() => {
-    // Fix untuk gambar marker di Next.js
-    // if (typeof window !== 'undefined') {
-    //   delete (Icon.Default.prototype as any)._getIconUrl;
-    //   Icon.Default.mergeOptions({
-    //     iconRetinaUrl: "/icons/marker-icon-2x.png",
-    //     iconUrl: "/icons/marker-icon.png",
-    //     shadowUrl: "/icons/marker-shadow.png",
-    //   });
-    // }
 
     const getLocations = async () => {
       try {
@@ -46,14 +33,12 @@ export default function Location() {
         setError(null);
         const data = await fetchLocations(language);
 
-        // Pengecekan data undefined atau null
         if (!data) {
           setLocations([]);
           setError("Data lokasi tidak tersedia");
           return;
         }
 
-        // Pengecekan apakah data adalah array
         if (!Array.isArray(data)) {
           setLocations([]);
           setError("Format data tidak valid");
@@ -65,7 +50,7 @@ export default function Location() {
           position: [
             loc?.coordinate?.latitude ?? 0,
             loc?.coordinate?.longitude ?? 0,
-          ] as [number, number], // Ensure position is a LatLngTuple
+          ] as [number, number],
           address: loc?.address ?? "Alamat tidak tersedia",
           code: loc?.location_code ?? "Kode tidak tersedia",
         }));

@@ -15,7 +15,7 @@ export default function FeatureCard({ icon, title, description }: FeatureCardPro
       viewport={{ once: true }}
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5 }}
-      className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:bg-[#FFCC0D] group"
+      className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:bg-[#FFCC0D] group h-full flex flex-col"
     >
       <motion.div
         animate={{ y: [-3, 3, -3] }}
@@ -24,6 +24,7 @@ export default function FeatureCard({ icon, title, description }: FeatureCardPro
           duration: 2,
           ease: "easeInOut"
         }}
+        className="mb-6"
       >
         <Image
           src={icon}
@@ -33,7 +34,7 @@ export default function FeatureCard({ icon, title, description }: FeatureCardPro
         />
       </motion.div>
       <h3 className="text-xl font-bold mb-4 group-hover:text-white">{title}</h3>
-      <p className="text-gray-600 group-hover:text-white">{description}</p>
+      <p className="text-gray-600 group-hover:text-white flex-grow">{description}</p>
     </motion.div>
   );
 }
