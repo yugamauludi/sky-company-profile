@@ -69,35 +69,45 @@ export default function Services() {
               {[
                 {
                   icon: "/images/tap-to-pay.png",
-                  alt: "TITO",
-                  title: servicesTranslations.technology.tito.title[language],
+                  alt: "QRIS Tap",
+                  title: servicesTranslations.technology.qrisTap.title[language],
                   description:
-                    servicesTranslations.technology.tito.description[language],
+                    servicesTranslations.technology.qrisTap.description[language],
                 },
-                {
-                  icon: "/images/scan.png",
-                  alt: "QRIS",
-                  title: servicesTranslations.technology.qris.title[language],
-                  description:
-                    servicesTranslations.technology.qris.description[language],
-                },
+                // {
+                //   icon: "/images/scan.png",
+                //   alt: "QRIS",
+                //   title: servicesTranslations.technology.qris.title[language],
+                //   description:
+                //     servicesTranslations.technology.qris.description[language],
+                // },
                 {
                   icon: "/images/id-card.png",
-                  alt: "Membership",
+                  alt: "Prepaid Card",
                   title:
-                    servicesTranslations.technology.membership.title[language],
+                    servicesTranslations.technology.prepaid_card.title[language],
                   description:
-                    servicesTranslations.technology.membership.description[
+                    servicesTranslations.technology.prepaid_card.description[
                       language
                     ],
                 },
                 {
                   icon: "/images/ewallet.png",
-                  alt: "E-wallet",
+                  alt: "E-wallet MPM",
                   title:
-                    servicesTranslations.technology.ewallet.title[language],
+                    servicesTranslations.technology.ewallet_mpm.title[language],
                   description:
-                    servicesTranslations.technology.ewallet.description[
+                    servicesTranslations.technology.ewallet_mpm.description[
+                      language
+                    ],
+                },
+                {
+                  icon: "/images/ewallet.png",
+                  alt: "E-wallet CPM",
+                  title:
+                    servicesTranslations.technology.ewallet_cpm.title[language],
+                  description:
+                    servicesTranslations.technology.ewallet_cpm.description[
                       language
                     ],
                 },
@@ -125,7 +135,7 @@ export default function Services() {
                     {card.title}
                   </h3>
                   <p className="text-sm text-gray-500 mt-2 hover:text-[#FFCC0D] transition-colors duration-300">
-                    Click to learn more
+                  {servicesTranslations.technology.learnMore[language]}
                   </p>
                 </motion.div>
               ))}
@@ -140,51 +150,76 @@ export default function Services() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="fixed inset-0 bg-black bg-opacity-50 z-50"
+                  className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50"
                   onClick={() => setSelectedCard(null)}
                 />
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5, y: -100 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.5, y: -100 }}
-                  className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-xl z-50 w-11/12 max-w-2xl"
+                  className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-12 rounded-lg shadow-xl z-50 w-11/12 max-w-5xl min-h-[500px] aspect-video"
                 >
-                  <div className="flex justify-end">
-                    <button
-                      onClick={() => setSelectedCard(null)}
-                      className="text-gray-500 hover:text-gray-700"
-                    >
-                      <svg
-                        className="w-6 h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                  {/* Video Background berdasarkan jenis kartu */}
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
+                  >
+                    <source 
+                      src={
+                        selectedCard.alt === "QRIS Tap"
+                          ? "/videos/qris_tap_animation.mp4"
+                          : selectedCard.alt === "Prepaid Card"
+                          ? "/videos/prepaid-card-animation.mp4"
+                          : selectedCard.title.includes("MPM")
+                          ? "/videos/ewallet_mpm_animation.mp4"
+                          : "/videos/ewallet_cpm_animation.mp4"
+                      } 
+                      type="video/mp4" 
+                    />
+                  </video>
+
+                  {/* Content dengan z-index lebih tinggi */}
+                  <div className="relative z-10">
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => setSelectedCard(null)}
+                        className="text-gray-500 hover:text-gray-700 absolute top-1 right-1"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                  <div className="flex items-center justify-center mb-6">
-                    <div className="h-24 w-24 bg-[#FFCC0D] rounded-full flex items-center justify-center">
-                      <Image
-                        src={selectedCard.icon}
-                        alt={selectedCard.alt}
-                        width={48}
-                        height={48}
-                      />
+                        <svg
+                          className="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
                     </div>
+                    <div className="flex items-center mt-24 justify-center mb-8">
+                      <div className="h-32 w-32 bg-[#FFCC0D] rounded-full flex items-center justify-center">
+                        <Image
+                          src={selectedCard.icon}
+                          alt={selectedCard.alt}
+                          width={64}
+                          height={64}
+                        />
+                      </div>
+                    </div>
+                    <h3 className="text-3xl font-bold mb-6 text-center">
+                      {selectedCard.title}
+                    </h3>
+                    <p className="text-gray-600 text-xl text-center leading-relaxed">
+                      {selectedCard.description}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-center">
-                    {selectedCard.title}
-                  </h3>
-                  <p className="text-gray-600 text-lg text-center">
-                    {selectedCard.description}
-                  </p>
                 </motion.div>
               </>
             )}

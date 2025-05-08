@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -6,6 +7,7 @@ import FeatureCard from "@/src/components/FeatureCard";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/src/context/LanguageContext";
 import { homeTranslations } from "@/src/locales/home";
+import ParkingSimulation from "@/src/components/ParkingSimulation";
 
 const clients = [
   { src: "/images/siloam.jpeg", alt: "Client 1" },
@@ -37,8 +39,11 @@ export default function Home() {
       setActiveIndex((current) => (current + 1) % clients.length);
     }, 2500);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow relative">
@@ -83,13 +88,22 @@ export default function Home() {
 
         {/* Features Section dengan Split Level */}
         <section className="relative -mt-24 z-20 pb-16">
-          <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl">
+          <div 
+            className="absolute inset-0 top-24 z-0"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)), url("/images/bg-home.jpeg")',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+          <div id="feature" className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="bg-white rounded-3xl shadow-2xl p-12"
+              className="bg-gradient-to-b from-white via-white/30 to-transparent rounded-3xl p-12"
             >
               <motion.div className="text-center mb-12">
                 <motion.h2
@@ -111,7 +125,7 @@ export default function Home() {
                   {homeTranslations.features.subtitle[language]}
                 </motion.p>
               </motion.div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {features[language].map((feature, index: number) => (
                   <motion.div
@@ -227,3 +241,10 @@ export default function Home() {
     </div>
   );
 }
+// export default function Home() {
+//   return (
+//     <div className="min-h-screen">
+//       <ParkingSimulation />
+//     </div>
+//   );
+// }

@@ -14,10 +14,10 @@ export const servicesTranslations = {
       id: "Teknologi SKY Parking",
       en: "SKY Parking Technology"
     },
-    tito: {
+    qrisTap: {
       title: {
-        id: "Tap In Tap Out (TITO)",
-        en: "Tap In Tap Out (TITO)"
+        id: "QRIS Tap",
+        en: "QRIS Tap"
       },
       description: {
         id: "Pembayaran Non-Tunai akan mengurangi kebocoran dan mempermudah pemantauan, dll., serta memfasilitasi dan mempercepat transaksi di gerbang keluar.",
@@ -34,25 +34,39 @@ export const servicesTranslations = {
         en: "Parking payment at SKY Parking is easier with QRIS payment method. Simply scan the QR code and enjoy the convenience without having to carry cash and with guaranteed security."
       }
     },
-    membership: {
+    prepaid_card: {
       title: {
-        id: "Keanggotaan",
-        en: "Membership"
+        id: "Kartu Prabayar",
+        en: "Prepaid Card"
       },
       description: {
-        id: "Pembayaran Non-Tunai akan mengurangi kebocoran dan mempermudah pemantauan, dll., serta memfasilitasi dan mempercepat transaksi di gerbang keluar.",
-        en: "Non-Cash Payment will reduce leaks and make monitoring, etc., easier, as well as facilitate and speed up transactions at the exit gate."
+        id: "Nikmati kemudahan parkir dengan kartu prabayar SKY Parking. Isi saldo sekali untuk berbagai transaksi parkir, tanpa perlu antri dan lebih hemat. Cocok untuk pengguna rutin area parkir kami.",
+        en: "Enjoy convenient parking with SKY Parking prepaid card. Top up once for multiple parking transactions, no queuing needed and more economical. Perfect for regular users of our parking areas."
       }
     },
-    ewallet: {
+    ewallet_mpm: {
       title: {
-        id: "Pembayaran E-wallet",
-        en: "E-wallet Payment"
+        id: "E-wallet MPM (Merchant Presented Mode)",
+        en: "E-wallet MPM (Merchant Presented Mode)"
       },
       description: {
-        id: "Untuk memudahkan transaksi pelanggan kami, kami telah bekerja sama dengan beberapa channel pembayaran di Indonesia seperti OVO, Go-Pay, LinkAja, dan lainnya.",
-        en: "To facilitate our customers transactions, we have collaborated with several payment channels in Indonesia such as OVO, Go-Pay, LinkAja, and others."
+        id: "Nikmati kemudahan pembayaran parkir dengan scan QR code yang tersedia di gerbang keluar. Kami telah bekerja sama dengan berbagai e-wallet seperti OVO, GoPay, dan LinkAja untuk memudahkan transaksi Anda.",
+        en: "Enjoy convenient parking payment by scanning the QR code available at the exit gate. We have partnered with various e-wallets such as OVO, GoPay, and LinkAja to facilitate your transactions."
       }
+    },
+    ewallet_cpm: {
+      title: {
+        id: "E-wallet CPM (Customer Presented Mode)",
+        en: "E-wallet CPM (Customer Presented Mode)"
+      },
+      description: {
+        id: "Tunjukkan QR code dari aplikasi e-wallet Anda untuk pembayaran yang lebih cepat. Metode ini mendukung berbagai aplikasi e-wallet populer di Indonesia untuk pengalaman parkir yang lebih nyaman.",
+        en: "Show the QR code from your e-wallet application for faster payment. This method supports various popular e-wallet applications in Indonesia for a more convenient parking experience."
+      }
+    },
+    learnMore: {
+      id: "Klik untuk mempelajari lebih lanjut",
+      en: "Click to learn more"
     }
   },
   dashboard: {
@@ -92,5 +106,5 @@ export const servicesTranslations = {
         "System Rent"
       ]
     }
-  }
+  },
 };
