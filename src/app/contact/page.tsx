@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { useLanguage } from "@/src/context/LanguageContext";
 import { contactTranslations } from "@/src/locales/contact";
-import {motion} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { FaEnvelope } from "react-icons/fa";
 
 interface FormData {
   title: string;
@@ -84,141 +86,284 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen py-16 relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#FFCC0D]/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-[#FFCC0D]/5 rounded-full translate-x-1/2" />
-      <div className="absolute bottom-0 left-1/3 w-48 h-48 bg-[#FFCC0D]/10 rounded-full" />
-      
-      <div className="container mx-auto px-4 max-w-3xl relative">
-        <div className="text-center mb-8 min-h-[80px]">
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }}
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Hero Section dengan Parallax Effect */}
+      <div className="relative h-[60vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/contact-us.jpg"
+            alt="Sky Parking Contact"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30" />
+        </div>
+        
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[50px] font-bold bg-gradient-to-r from-[#FFCC0D] to-[#FFA500] bg-clip-text text-transparent"
+            transition={{ duration: 0.8 }}
+            className="text-center"
           >
-            {contactTranslations.title[language]}
-          </motion.h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#FFCC0D] to-[#FFA500]">
+              {contactTranslations.title[language]}
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto">
+              {contactTranslations.description[language]}
+            </p>
+          </motion.div>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-lg">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            <div>
-              <label className="block text-gray-700 mb-2">
-                {contactTranslations.titleLabel[language]}
-              </label>
-              <select
-                value={formData.title}
-                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                className="w-full h-[47.8px] px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FFCC0D] focus:border-transparent transition-all duration-300"
-              >
-                <option value="mr">{contactTranslations.titleOptions.mr[language]}</option>
-                <option value="mrs">{contactTranslations.titleOptions.mrs[language]}</option>
-                <option value="ms">{contactTranslations.titleOptions.ms[language]}</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-gray-700 mb-2">
-                {contactTranslations.name[language]}<span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FFCC0D] focus:border-transparent transition-all duration-300"
-              />
-            </div>
+        {/* Animated Scroll Indicator */}
+        <motion.div
+          animate={{
+            y: [0, 10, 0],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        >
+          <div className="w-6 h-10 border-2 border-white rounded-full p-1">
+            <div className="w-1.5 h-3 bg-white rounded-full mx-auto" />
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            <div>
-              <label className="block text-gray-700 mb-2">
-                {contactTranslations.email[language]}<span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FFCC0D] focus:border-transparent transition-all duration-300"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 mb-2">
-                {contactTranslations.phone[language]}<span className="text-red-500">*</span>
-              </label>
-              <input
-                type="tel"
-                required
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FFCC0D] focus:border-transparent transition-all duration-300"
-              />
-            </div>
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2">
-              {contactTranslations.company[language]}<span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              required
-              value={formData.company}
-              onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-              className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FFCC0D] focus:border-transparent transition-all duration-300"
-            />
-          </div>
-
-          <div className="mb-6">
-            <label className="block text-gray-700 mb-2">
-              {contactTranslations.message[language]}<span className="text-red-500">*</span>
-            </label>
-            <textarea
-              required
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              rows={4}
-              className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FFCC0D] focus:border-transparent transition-all duration-300 resize-none"
-            />
-          </div>
-
-          {submitStatus.message && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className={`mb-4 p-4 rounded-xl ${
-                submitStatus.type === "success"
-                  ? "bg-green-50 text-green-700 border border-green-200"
-                  : "bg-red-50 text-red-700 border border-red-200"
-              }`}
-            >
-              {submitStatus.message}
-            </motion.div>
-          )}
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-[#FFCC0D] to-[#FFA500] text-white py-3 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 disabled:opacity-50 transform hover:-translate-y-1 flex items-center justify-center space-x-2"
-          >
-            {isSubmitting && (
-              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-            )}
-            <span>
-              {isSubmitting 
-                ? contactTranslations.sending[language]
-                : contactTranslations.submit[language]
-              }
-            </span>
-          </button>
-        </form>
+        </motion.div>
       </div>
+
+      {/* Main Content dengan Glass Effect */}
+      <div className="relative z-20 -mt-20 container mx-auto px-4 max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Contact Information Panel */}
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h2 className="text-3xl font-bold text-gray-800">
+                  {contactTranslations.contactInfo[language]}
+                </h2>
+                <p className="text-gray-600 text-lg">
+                  {contactTranslations.contactDescription[language]}
+                </p>
+              </div>
+
+              {/* Contact Cards dengan Hover Effects */}
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: "📞",
+                    title: "Phone",
+                    content: "(+62)21 55764058",
+                    gradient: "from-blue-500 to-blue-600"
+                  },
+                  {
+                    icon: <FaEnvelope className="text-[#FFCC0D] text-4xl" />,
+                    title: "Email",
+                    content: "business.development@skyparking.co.id",
+                    gradient: "from-green-500 to-green-900"
+                  },
+                  {
+                    icon: "📍",
+                    title: "Address",
+                    content: "Ruko pinangsia karawaci Office park blok H no 20, Lippo Village, Karawaci, Tangerang, Banten",
+                    gradient: "from-red-500 to-red-600"
+                  }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.02 }}
+                    className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className={`text-4xl bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}>
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+                        <p className="text-gray-600">{item.content}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Form dengan Animasi */}
+            <div className="relative">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Form Fields dengan Enhanced Styling */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="relative group">
+                    <label className="block text-gray-700 mb-2 font-medium">
+                      {contactTranslations.titleLabel[language]}
+                    </label>
+                    <select
+                      value={formData.title}
+                      onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                      className="w-full h-[59px] px-5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300"
+                    >
+                      <option value="mr">{contactTranslations.titleOptions.mr[language]}</option>
+                      <option value="mrs">{contactTranslations.titleOptions.mrs[language]}</option>
+                      <option value="ms">{contactTranslations.titleOptions.ms[language]}</option>
+                    </select>
+                  </div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.01 }}
+                    className="relative group"
+                  >
+                    <label className="block text-gray-700 mb-2 font-medium">
+                      {contactTranslations.name[language]}<span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full h-[59px] px-5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300"
+                    />
+                  </motion.div>
+                </div>
+
+                {/* Email dan Phone */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <motion.div
+                    whileHover={{ scale: 1.01 }}
+                    className="relative group"
+                  >
+                    <label className="block text-gray-700 mb-2 font-medium">
+                      {contactTranslations.email[language]}<span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300"
+                    />
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.01 }}
+                    className="relative group"
+                  >
+                    <label className="block text-gray-700 mb-2 font-medium">
+                      {contactTranslations.phone[language]}<span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300"
+                    />
+                  </motion.div>
+                </div>
+
+                {/* Company */}
+                <motion.div
+                  whileHover={{ scale: 1.01 }}
+                  className="relative group"
+                >
+                  <label className="block text-gray-700 mb-2 font-medium">
+                    {contactTranslations.company[language]}<span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.company}
+                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300"
+                  />
+                </motion.div>
+
+                {/* Message */}
+                <motion.div
+                  whileHover={{ scale: 1.01 }}
+                  className="relative group"
+                >
+                  <label className="block text-gray-700 mb-2 font-medium">
+                    {contactTranslations.message[language]}<span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    required
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    rows={4}
+                    className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300 resize-none"
+                  />
+                </motion.div>
+
+                {/* Submit Button dengan Advanced Animation */}
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`
+                    w-full py-4 px-8 rounded-xl font-bold text-lg
+                    ${isSubmitting 
+                      ? 'bg-gray-400 cursor-not-allowed' 
+                      : 'bg-gradient-to-r from-[#FFCC0D] to-[#FFA500] hover:shadow-lg hover:shadow-[#FFCC0D]/20'
+                    }
+                    transition-all duration-300
+                  `}
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
+                        <span>{contactTranslations.sending[language]}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>{contactTranslations.submit[language]}</span>
+                        <motion.span
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1, repeat: Infinity }}
+                        >
+                          →
+                        </motion.span>
+                      </>
+                    )}
+                  </span>
+                </motion.button>
+
+                {/* Status Message dengan Enhanced Animation */}
+                <AnimatePresence>
+                  {submitStatus.message && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      className={`
+                        p-4 rounded-xl text-center font-medium
+                        ${submitStatus.type === "success"
+                          ? "bg-green-50 text-green-700 border border-green-200"
+                          : "bg-red-50 text-red-700 border border-red-200"
+                        }
+                      `}
+                    >
+                      {submitStatus.message}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </form>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Floating Elements */}
+      <div className="absolute top-1/4 left-0 w-72 h-72 bg-[#FFCC0D]/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#FFA500]/10 rounded-full blur-3xl" />
     </div>
   );
 }

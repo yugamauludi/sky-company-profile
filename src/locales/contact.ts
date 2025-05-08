@@ -1,7 +1,11 @@
 export const contactTranslations = {
   title: {
-    en: "Contact Us",
+    en: "Get in Touch with Us",
     id: "Hubungi Kami"
+  },
+  description: {
+    en: "Have questions or need assistance? We're here to help! Reach out to us through any of the following channels.",
+    id: "Punya pertanyaan atau butuh bantuan? Kami siap membantu! Hubungi kami melalui berbagai saluran berikut."
   },
   titleLabel: {
     en: "Title",
@@ -10,36 +14,36 @@ export const contactTranslations = {
   titleOptions: {
     mr: {
       en: "Mr.",
-      id: "Tn."
+      id: "Bapak"
     },
     mrs: {
       en: "Mrs.",
-      id: "Ny."
+      id: "Ibu"
     },
     ms: {
       en: "Ms.",
-      id: "Nn."
+      id: "Nona"
     }
   },
   name: {
-    en: "Name",
-    id: "Nama"
+    en: "Full Name",
+    id: "Nama Lengkap"
   },
   email: {
-    en: "Email",
-    id: "Email"
+    en: "Email Address",
+    id: "Alamat Email"
   },
   phone: {
-    en: "Phone",
-    id: "Telepon"
+    en: "Phone Number",
+    id: "Nomor Telepon"
   },
   company: {
-    en: "Company",
-    id: "Perusahaan"
+    en: "Company Name",
+    id: "Nama Perusahaan"
   },
   message: {
-    en: "Message",
-    id: "Pesan"
+    en: "Your Message",
+    id: "Pesan Anda"
   },
   submit: {
     en: "Send Message",
@@ -50,11 +54,19 @@ export const contactTranslations = {
     id: "Mengirim..."
   },
   success: {
-    en: "Message sent successfully!",
-    id: "Pesan berhasil terkirim!"
+    en: "Thank you! Your message has been sent successfully.",
+    id: "Terima kasih! Pesan Anda telah berhasil terkirim."
   },
   error: {
-    en: "Failed to send message. Please try again.",
-    id: "Gagal mengirim pesan. Silakan coba lagi."
+    en: "Sorry, there was an error sending your message. Please try again.",
+    id: "Maaf, terjadi kesalahan saat mengirim pesan. Silakan coba lagi."
+  },
+  contactInfo: {
+    en: "Contact Information",
+    id: "Informasi Kontak"
+  },
+  contactDescription: {
+    en: "Feel free to reach out to us through any of these channels. We're here to assist you with any questions or concerns.",
+    id: "Jangan ragu untuk menghubungi kami melalui saluran-saluran ini. Kami siap membantu Anda dengan pertanyaan atau keperluan apapun."
   }
 };

@@ -24,100 +24,91 @@ export default function Services() {
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
-        {/* Hero Section */}
-        <div
-          className="min-h-[300px] flex items-center justify-center"
+        {/* Hero Section dengan Background Image dan Gradient Overlay */}
+        <section 
+          className="relative min-h-screen flex items-center justify-center overflow-hidden"
           style={{
-            backgroundImage:
-              'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/hero2.jpg")',
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/hero2.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         >
-          <div className="container mx-auto px-4 max-w-7xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl md:text-5xl font-bold text-[#FFCC0D] text-center mb-4"
-            >
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="relative z-10 container mx-auto px-4 text-center"
+          >
+            <h1 className="text-5xl md:text-7xl font-bold text-[#FFCC0D] mb-8 leading-tight">
               {servicesTranslations.hero.title[language]}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl text-white text-center max-w-3xl mx-auto"
-            >
+            </h1>
+            <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
               {servicesTranslations.hero.subtitle[language]}
-            </motion.p>
-          </div>
-        </div>
+            </p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mt-12"
+            >
+              <button 
+                onClick={() => {
+                  const targetSection = document.querySelector('#technology-section');
+                  targetSection?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
+                className="bg-[#FFCC0D] text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-400 transition-colors duration-300 transform hover:scale-105"
+              >
+                Mulai Sekarang
+              </button>
+            </motion.div>
+          </motion.div>
+        </section>
 
-        {/* Technology Section */}
-        <section className="py-16">
+        {/* Technology Section dengan Card 3D Effect */}
+        <section id="technology-section" className="py-24 bg-gradient-to-b from-gray-900 to-gray-800">
           <div className="container mx-auto px-4 max-w-7xl">
-            <motion.h2
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl font-bold text-center mb-12"
+              className="text-center mb-16"
             >
-              {servicesTranslations.technology.title[language]}
-            </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#FFCC0D] mb-6">
+                {servicesTranslations.technology.title[language]}
+              </h2>
+              <div className="w-24 h-1 bg-[#FFCC0D] mx-auto rounded-full"></div>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
                   icon: "/images/tap-to-pay.png",
                   alt: "QRIS Tap",
-                  title:
-                    servicesTranslations.technology.qrisTap.title[language],
-                  description:
-                    servicesTranslations.technology.qrisTap.description[
-                      language
-                    ],
+                  title: servicesTranslations.technology.qrisTap.title[language],
+                  description: servicesTranslations.technology.qrisTap.description[language],
                 },
-                // {
-                //   icon: "/images/scan.png",
-                //   alt: "QRIS",
-                //   title: servicesTranslations.technology.qris.title[language],
-                //   description:
-                //     servicesTranslations.technology.qris.description[language],
-                // },
                 {
                   icon: "/images/id-card.png",
                   alt: "Prepaid Card",
-                  title:
-                    servicesTranslations.technology.prepaid_card.title[
-                      language
-                    ],
-                  description:
-                    servicesTranslations.technology.prepaid_card.description[
-                      language
-                    ],
+                  title: servicesTranslations.technology.prepaid_card.title[language],
+                  description: servicesTranslations.technology.prepaid_card.description[language],
                 },
                 {
                   icon: "/images/ewallet.png",
                   alt: "E-wallet MPM",
-                  title:
-                    servicesTranslations.technology.ewallet_mpm.title[language],
-                  description:
-                    servicesTranslations.technology.ewallet_mpm.description[
-                      language
-                    ],
+                  title: servicesTranslations.technology.ewallet_mpm.title[language],
+                  description: servicesTranslations.technology.ewallet_mpm.description[language],
                 },
                 {
                   icon: "/images/ewallet.png",
                   alt: "E-wallet CPM",
-                  title:
-                    servicesTranslations.technology.ewallet_cpm.title[language],
-                  description:
-                    servicesTranslations.technology.ewallet_cpm.description[
-                      language
-                    ],
-                },
+                  title: servicesTranslations.technology.ewallet_cpm.title[language],
+                  description: servicesTranslations.technology.ewallet_cpm.description[language],
+                }
               ].map((card, index) => (
                 <motion.div
                   key={index}
@@ -125,120 +116,128 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="flex flex-col items-center cursor-pointer"
+                  whileHover={{ 
+                    scale: 1.05,
+                    rotateY: 5,
+                    z: 50
+                  }}
+                  className="group bg-white/10 backdrop-blur-lg rounded-2xl p-8 cursor-pointer transform transition-all duration-500 hover:shadow-2xl hover:shadow-[#FFCC0D]/20"
                   onClick={() => handleCardClick(card)}
                 >
-                  <div className="h-32 w-32 bg-[#FFCC0D] rounded-full flex items-center justify-center mb-6 hover:shadow-lg transition-shadow duration-300">
-                    <Image
-                      src={card.icon}
-                      alt={card.alt}
-                      width={64}
-                      height={64}
-                      className="transition-transform duration-300"
-                    />
+                  <div className="relative h-40 w-40 mx-auto mb-8">
+                    <div className="absolute inset-0 bg-[#FFCC0D]/20 rounded-full animate-pulse group-hover:animate-none"></div>
+                    <div className="h-full w-full bg-[#FFCC0D] rounded-full flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
+                      <Image
+                        src={card.icon}
+                        alt={card.alt}
+                        width={80}
+                        height={80}
+                        className="transform transition-all duration-500 group-hover:rotate-12"
+                      />
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-center">
+                  <h3 className="text-2xl font-bold text-white text-center mb-4 group-hover:text-[#FFCC0D] transition-colors duration-300">
                     {card.title}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-2 hover:text-[#FFCC0D] transition-colors duration-300">
+                  <p className="text-gray-400 text-center group-hover:text-white transition-colors duration-300">
                     {servicesTranslations.technology.learnMore[language]}
                   </p>
                 </motion.div>
               ))}
             </div>
           </div>
-
-          {/* Modal Popup */}
-          <Modal
-            selectedCard={selectedCard}
-            onClose={() => setSelectedCard(null)}
-          />
         </section>
 
-        {/* Dashboard Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4 max-w-7xl">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl font-bold text-center mb-12"
-            >
-              {servicesTranslations.dashboard.title[language]}
-            </motion.h2>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        {/* Dashboard Section dengan Floating Elements */}
+        <section className="py-24 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('/images/grid-pattern.png')] opacity-5"></div>
+          <div className="container mx-auto px-4 max-w-7xl relative">
+            <div className="flex flex-col lg:flex-row items-center gap-16">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="md:w-1/2 px-4"
+                className="lg:w-1/2 space-y-8"
               >
-                <h3 className="text-3xl font-bold mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                  {servicesTranslations.dashboard.title[language]}
+                </h2>
+                <div className="w-20 h-1 bg-[#FFCC0D] rounded-full"></div>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
                   {servicesTranslations.dashboard.subtitle[language]}
                 </h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
+                <p className="text-xl text-gray-600 leading-relaxed">
                   {servicesTranslations.dashboard.description[language]}
                 </p>
+                {/* <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-[#FFCC0D] text-black px-8 py-4 rounded-full text-lg font-bold mt-8 hover:bg-yellow-400 transition-colors duration-300"
+                >
+                  Lihat Demo
+                </motion.button> */}
               </motion.div>
+              
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="md:w-1/2 flex justify-center items-center px-4"
+                className="lg:w-1/2"
               >
-                <div className="relative w-full max-w-md mx-auto">
-                  <Image
-                    src="/icons/chart.png"
-                    alt="Dashboard"
-                    width={400}
-                    height={240}
-                    className="object-contain w-full h-auto"
-                  />
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-[#FFCC0D] to-yellow-500 rounded-2xl blur opacity-20 animate-pulse"></div>
+                  <div className="relative bg-white rounded-2xl shadow-2xl p-8 transform hover:scale-105 transition-transform duration-500">
+                    <Image
+                      src="/icons/chart.png"
+                      alt="Dashboard"
+                      width={600}
+                      height={400}
+                      className="w-full h-auto rounded-lg"
+                    />
+                  </div>
                 </div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Collaboration Section */}
-        <section className="py-16">
+        {/* Collaboration Section dengan Animated Grid */}
+        <section className="py-24 bg-gray-900">
           <div className="container mx-auto px-4 max-w-7xl">
-            <motion.h2
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl font-bold text-center mb-12"
+              className="text-center mb-16"
             >
-              {servicesTranslations.collaboration.title[language]}
-            </motion.h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {servicesTranslations.collaboration.items[language].map(
-                (item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "#FFCC0D",
-                      color: "white",
-                    }}
-                    className="bg-white p-4 rounded-lg shadow-md text-center transition-all duration-300"
-                  >
-                    <p className="font-semibold">{item}</p>
-                  </motion.div>
-                )
-              )}
+              <h2 className="text-4xl md:text-5xl font-bold text-[#FFCC0D] mb-6">
+                {servicesTranslations.collaboration.title[language]}
+              </h2>
+              <div className="w-24 h-1 bg-[#FFCC0D] mx-auto rounded-full"></div>
+            </motion.div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 place-items-center">
+              {servicesTranslations.collaboration.items[language].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  whileHover={{
+                    scale: 1.1,
+                    rotateZ: 5,
+                  }}
+                  className="bg-white/10 backdrop-blur-lg p-6 rounded-xl text-center w-full h-24 flex items-center justify-center transform transition-all duration-300 hover:shadow-lg hover:shadow-[#FFCC0D]/20 border border-white/10"
+                >
+                  <p className="font-bold text-lg text-white">{item}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
+
+        {/* Modal Component */}
+        <Modal selectedCard={selectedCard} onClose={() => setSelectedCard(null)} />
       </main>
     </div>
   );

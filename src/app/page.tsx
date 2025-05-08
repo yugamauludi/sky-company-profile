@@ -103,7 +103,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="bg-gradient-to-b from-white via-white/30 to-transparent rounded-3xl p-12"
+              className="bg-gradient-to-b from-white via-white/20 to-transparent rounded-3xl p-12"
             >
               <motion.div className="text-center mb-12">
                 <motion.h2
