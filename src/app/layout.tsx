@@ -20,9 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <head>
+      <head>
         <link rel="icon" type="image/png" href="/images/logo.png" />
-      </head> */}
+      </head>
       <body>
         <LanguageProvider>
           <div className="min-h-screen flex flex-col">
