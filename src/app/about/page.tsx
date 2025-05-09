@@ -18,7 +18,7 @@ export default function About() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed"
+            backgroundAttachment: "fixed",
           }}
         >
           <div
@@ -115,7 +115,6 @@ export default function About() {
         {/* ISO Certification Section dengan 3D Card Effect */}
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-8 md:px-16 lg:px-24 max-w-7xl">
-          </div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +124,7 @@ export default function About() {
             >
               {aboutTranslations.certification.title[language]}
             </motion.h2>
-            <div className="flex justify-center">
+            <div className="flex justify-center items-center min-h-[500px]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -138,7 +137,7 @@ export default function About() {
                 }}
                 className="bg-white p-12 rounded-3xl shadow-2xl transform perspective-1000 hover:shadow-[#FFCC0D]/30"
               >
-                <div className="text-center space-y-8">
+                <div className="text-center space-y-8 flex flex-col justify-center">
                   <Image
                     src="/images/iso.png"
                     alt="ISO 9001"
@@ -157,7 +156,8 @@ export default function About() {
                 </div>
               </motion.div>
             </div>
-          </section>
+          </div>
+        </section>
 
           {/* Awards Section dengan Interactive Gallery */}
           <section className="py-24 bg-white">
@@ -179,17 +179,16 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: num * 0.2 }}
-                    whileHover={{ y: -20 }}
-                    className="group relative"
+                    className="group relative transform-gpu flex items-center"
                   >
-                    <div className="absolute inset-0 bg-[#FFCC0D] rounded-3xl transform -rotate-6 group-hover:rotate-0 transition-transform duration-300" />
-                    <div className="relative bg-white p-8 rounded-3xl shadow-xl transform transition-transform duration-300 group-hover:translate-y-1">
+                    <div className="absolute inset-0 bg-[#FFCC0D] rounded-3xl transform -rotate-6 transition-transform duration-300 group-hover:rotate-0" />
+                    <div className="relative bg-white p-8 rounded-3xl shadow-xl transition-all duration-300 group-hover:translate-y-1 w-full">
                       <Image
                         src={`/images/reward_${num}.png`}
                         alt={`Award ${num}`}
                         width={400}
                         height={400}
-                        className="w-full h-auto transform transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
                   </motion.div>
