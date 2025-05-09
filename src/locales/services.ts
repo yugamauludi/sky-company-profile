@@ -36,12 +36,12 @@ export const servicesTranslations = {
     },
     prepaid_card: {
       title: {
-        id: "Kartu Prabayar",
-        en: "Prepaid Card"
+        id: "Kartu Prabayar (E-money)",
+        en: "Prepaid Card (E-money)"
       },
       description: {
-        id: "Nikmati kemudahan parkir dengan kartu prabayar SKY Parking. Isi saldo sekali untuk berbagai transaksi parkir, tanpa perlu antri dan lebih hemat. Cocok untuk pengguna rutin area parkir kami.",
-        en: "Enjoy convenient parking with SKY Parking prepaid card. Top up once for multiple parking transactions, no queuing needed and more economical. Perfect for regular users of our parking areas."
+        id: "Maksimalkan kenyamanan parkir Anda dengan Kartu Prabayar. Solusi pembayaran parkir yang efisien dengan teknologi e-money, mendukung berbagai kartu seperti Flazz, e-Money Mandiri, Brizzi, dan TapCash. Cukup tap kartu untuk masuk dan keluar, tanpa perlu antri atau repot mencari uang tunai. Ideal untuk pengguna rutin dengan saldo yang dapat diisi ulang dan berlaku di seluruh area parkir SKY Parking.",
+        en: "Maximize your parking convenience with Prepaid Card. An efficient parking payment solution with e-money technology, supporting various cards such as Flazz, e-Money Mandiri, Brizzi, and TapCash. Simply tap your card to enter and exit, no queuing or hassle of finding cash. Ideal for regular users with rechargeable balance valid across all SKY Parking areas."
       }
     },
     ewallet_mpm: {
@@ -50,8 +50,8 @@ export const servicesTranslations = {
         en: "E-wallet MPM (Merchant Presented Mode)"
       },
       description: {
-        id: "Nikmati kemudahan pembayaran parkir dengan scan QR code yang tersedia di gerbang keluar. Kami telah bekerja sama dengan berbagai e-wallet seperti OVO, GoPay, dan LinkAja untuk memudahkan transaksi Anda.",
-        en: "Enjoy convenient parking payment by scanning the QR code available at the exit gate. We have partnered with various e-wallets such as OVO, GoPay, and LinkAja to facilitate your transactions."
+        id: "Nikmati kemudahan pembayaran parkir dengan scan QR code yang tersedia di gerbang keluar. Kami telah bekerja sama dengan berbagai e-wallet seperti OVO, GoPay, dan Nobu Bank untuk memudahkan transaksi Anda.",
+        en: "Enjoy convenient parking payment by scanning the QR code available at the exit gate. We have partnered with various e-wallets such as OVO, GoPay, and Nobu Bank to facilitate your transactions."
       }
     },
     ewallet_cpm: {
@@ -62,6 +62,16 @@ export const servicesTranslations = {
       description: {
         id: "Tunjukkan QR code dari aplikasi e-wallet Anda untuk pembayaran yang lebih cepat. Metode ini mendukung berbagai aplikasi e-wallet populer di Indonesia untuk pengalaman parkir yang lebih nyaman.",
         en: "Show the QR code from your e-wallet application for faster payment. This method supports various popular e-wallet applications in Indonesia for a more convenient parking experience."
+      }
+    },
+    member: {
+      title: {
+        id: "Member Sky Parking",
+        en: "Sky Parking Member"
+      },
+      description: {
+        id: "Nikmati kemudahan parkir dengan menjadi Member Sky Parking. Dengan berlangganan bulanan, Anda dapat parkir sepuasnya selama sebulan penuh di lokasi parkir yang terdaftar. Program membership ini memberikan kenyamanan maksimal tanpa perlu repot membayar parkir setiap kali berkunjung. Perpanjangan membership dapat dilakukan setiap bulan untuk terus menikmati fasilitas parkir premium kami.",
+        en: "Enjoy hassle-free parking by becoming a Sky Parking Member. With monthly subscription, you can park unlimited times for a full month at your registered parking location. This membership program provides maximum convenience without the need to pay for parking on each visit. Membership can be renewed monthly to continue enjoying our premium parking facilities."
       }
     },
     learnMore: {

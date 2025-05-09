@@ -13,7 +13,7 @@ interface ModalProps {
   onClose: () => void;
 }
 
-export default function MddalPaymentMethod({ selectedCard, onClose }: ModalProps) {
+export default function ModalPaymentMethod({ selectedCard, onClose }: ModalProps) {
   if (!selectedCard) return null;
 
   return (

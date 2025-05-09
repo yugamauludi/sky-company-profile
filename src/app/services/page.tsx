@@ -5,6 +5,7 @@ import { servicesTranslations } from "@/src/locales/services";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Modal from "@/src/components/Modal/ModalPaymentMethod";
+import { useRef } from "react";
 
 interface TechnologyCard {
   icon: string;
@@ -16,9 +17,23 @@ interface TechnologyCard {
 export default function Services() {
   const { language } = useLanguage();
   const [selectedCard, setSelectedCard] = useState<TechnologyCard | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const handleCardClick = (card: TechnologyCard) => {
     setSelectedCard(card);
+  };
+
+  const scroll = (direction: "left" | "right") => {
+    if (carouselRef.current) {
+      // Menggunakan lebar kartu (280px) + gap (24px) untuk scroll yang lebih smooth
+      const cardWidth = 280;
+      const cardGap = 24;
+      const scrollAmount = direction === "left" ? -(cardWidth + cardGap) : (cardWidth + cardGap);
+      carouselRef.current.scrollBy({ 
+        left: scrollAmount, 
+        behavior: "smooth" 
+      });
+    }
   };
 
   return (
@@ -83,78 +98,113 @@ export default function Services() {
               <div className="w-24 h-1 bg-[#FFCC0D] mx-auto rounded-full"></div>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  icon: "/images/tap-to-pay.png",
-                  alt: "QRIS Tap",
-                  title: servicesTranslations.technology.qrisTap.title[language],
-                  description: servicesTranslations.technology.qrisTap.description[language],
-                },
-                {
-                  icon: "/images/id-card.png",
-                  alt: "Prepaid Card",
-                  title: servicesTranslations.technology.prepaid_card.title[language],
-                  description: servicesTranslations.technology.prepaid_card.description[language],
-                },
-                {
-                  icon: "/images/ewallet.png",
-                  alt: "E-wallet MPM",
-                  title: servicesTranslations.technology.ewallet_mpm.title[language],
-                  description: servicesTranslations.technology.ewallet_mpm.description[language],
-                },
-                {
-                  icon: "/images/ewallet.png",
-                  alt: "E-wallet CPM",
-                  title: servicesTranslations.technology.ewallet_cpm.title[language],
-                  description: servicesTranslations.technology.ewallet_cpm.description[language],
-                }
-              ].map((card, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    rotateY: 5,
-                    z: 50
-                  }}
-                  className="group bg-white/10 backdrop-blur-lg rounded-2xl p-8 cursor-pointer transform transition-all duration-500 hover:shadow-2xl hover:shadow-[#FFCC0D]/20"
-                  onClick={() => handleCardClick(card)}
-                >
-                  <div className="relative h-40 w-40 mx-auto mb-8">
-                    <div className="absolute inset-0 bg-[#FFCC0D]/20 rounded-full animate-pulse group-hover:animate-none"></div>
-                    <div className="h-full w-full bg-[#FFCC0D] rounded-full flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
-                      <Image
-                        src={card.icon}
-                        alt={card.alt}
-                        width={80}
-                        height={80}
-                        className="transform transition-all duration-500 group-hover:rotate-12"
-                      />
+            <div className="relative px-12"> {/* Tambahkan padding di sini */}
+              {/* Navigation Buttons */}
+              <button
+                onClick={() => scroll("left")}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#FFCC0D] p-3 rounded-full shadow-lg hover:bg-yellow-400 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+              <button
+                onClick={() => scroll("right")}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#FFCC0D] p-3 rounded-full shadow-lg hover:bg-yellow-400 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </button>
+
+              {/* Carousel Container */}
+              <div 
+                ref={carouselRef}
+                className="flex overflow-x-auto gap-6 pb-4 scrollbar-hide snap-x snap-mandatory mx-auto max-w-[calc(100%-2rem)]"
+                style={{
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                  WebkitOverflowScrolling: 'touch'
+                }}
+              >
+                {[
+                  {
+                    icon: "/images/tap-to-pay.png",
+                    alt: "QRIS Tap",
+                    title: servicesTranslations.technology.qrisTap.title[language],
+                    description: servicesTranslations.technology.qrisTap.description[language],
+                  },
+                  {
+                    icon: "/images/debit-card.png",
+                    alt: "Prepaid Card",
+                    title: servicesTranslations.technology.prepaid_card.title[language],
+                    description: servicesTranslations.technology.prepaid_card.description[language],
+                  },
+                  {
+                    icon: "/images/id-card.png",
+                    alt: "Member Sky Parking",
+                    title: servicesTranslations.technology.member.title[language],
+                    description: servicesTranslations.technology.member.description[language],
+                  },
+                  {
+                    icon: "/images/ewallet.png",
+                    alt: "E-wallet MPM",
+                    title: servicesTranslations.technology.ewallet_mpm.title[language],
+                    description: servicesTranslations.technology.ewallet_mpm.description[language],
+                  },
+                  {
+                    icon: "/images/ewallet.png",
+                    alt: "E-wallet CPM",
+                    title: servicesTranslations.technology.ewallet_cpm.title[language],
+                    description: servicesTranslations.technology.ewallet_cpm.description[language],
+                  }
+                ].map((card, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      rotateY: 5,
+                      z: 50
+                    }}
+                    className="flex-none w-[280px] snap-center group bg-white/10 backdrop-blur-lg rounded-2xl p-8 cursor-pointer transform transition-all duration-500 hover:shadow-2xl hover:shadow-[#FFCC0D]/20"
+                    onClick={() => handleCardClick(card)}
+                  >
+                    <div className="relative h-40 w-40 mx-auto mb-8">
+                      <div className="absolute inset-0 bg-[#FFCC0D]/20 rounded-full animate-pulse group-hover:animate-none"></div>
+                      <div className="h-full w-full bg-[#FFCC0D] rounded-full flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
+                        <Image
+                          src={card.icon}
+                          alt={card.alt}
+                          width={80}
+                          height={80}
+                          className="transform transition-all duration-500 group-hover:rotate-12"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white text-center mb-4 group-hover:text-[#FFCC0D] transition-colors duration-300">
-                    {card.title}
-                  </h3>
-                  <p className="text-gray-400 text-center group-hover:text-white transition-colors duration-300">
-                    {servicesTranslations.technology.learnMore[language]}
-                  </p>
-                </motion.div>
-              ))}
+                    <h3 className="text-2xl font-bold text-white text-center mb-4 group-hover:text-[#FFCC0D] transition-colors duration-300">
+                      {card.title}
+                    </h3>
+                    <p className="text-gray-400 text-center group-hover:text-white transition-colors duration-300">
+                      {servicesTranslations.technology.learnMore[language]}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* Dashboard Section dengan Floating Elements */}
         <section className="py-24 bg-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/grid-pattern.png')] opacity-5"></div>
+          <div className="absolute inset-0 bg-[url('/images/parking-lot.jpg')] opacity-20 bg-cover bg-center bg-no-repeat"></div>
           <div className="container mx-auto px-4 max-w-7xl relative">
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 3, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="lg:w-1/2 space-y-8"
