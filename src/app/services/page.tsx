@@ -88,8 +88,8 @@ export default function Services() {
           <div className="container mx-auto px-4 max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-[#FFCC0D] mb-6">
@@ -98,8 +98,7 @@ export default function Services() {
               <div className="w-24 h-1 bg-[#FFCC0D] mx-auto rounded-full"></div>
             </motion.div>
 
-            <div className="relative px-12"> {/* Tambahkan padding di sini */}
-              {/* Navigation Buttons */}
+            <div className="relative px-12">
               <button
                 onClick={() => scroll("left")}
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#FFCC0D] p-3 rounded-full shadow-lg hover:bg-yellow-400 transition-colors"
@@ -117,15 +116,9 @@ export default function Services() {
                 </svg>
               </button>
 
-              {/* Carousel Container */}
               <div 
                 ref={carouselRef}
-                className="flex overflow-x-auto gap-6 pb-4 scrollbar-hide snap-x snap-mandatory mx-auto max-w-[calc(100%-2rem)]"
-                style={{
-                  scrollbarWidth: 'none',
-                  msOverflowStyle: 'none',
-                  WebkitOverflowScrolling: 'touch'
-                }}
+                className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scroll-smooth no-scrollbar"
               >
                 {[
                   {
@@ -161,20 +154,14 @@ export default function Services() {
                 ].map((card, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.2 }}
-                    whileHover={{ 
-                      scale: 1.05,
-                      rotateY: 5,
-                      z: 50
-                    }}
-                    className="flex-none w-[280px] snap-center group bg-white/10 backdrop-blur-lg rounded-2xl p-8 cursor-pointer transform transition-all duration-500 hover:shadow-2xl hover:shadow-[#FFCC0D]/20"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className="flex-none w-[280px] snap-center group bg-white/10 backdrop-blur-lg rounded-2xl p-8 cursor-pointer transform transition-all duration-300 hover:shadow-2xl hover:shadow-[#FFCC0D]/20 hover:scale-105"
                     onClick={() => handleCardClick(card)}
                   >
                     <div className="relative h-40 w-40 mx-auto mb-8">
-                      <div className="absolute inset-0 bg-[#FFCC0D]/20 rounded-full animate-pulse group-hover:animate-none"></div>
+                      <div className="absolute inset-0 bg-[#FFCC0D]/20 rounded-full"></div>
                       <div className="h-full w-full bg-[#FFCC0D] rounded-full flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
                         <Image
                           src={card.icon}
