@@ -124,27 +124,25 @@ export default function About() {
             >
               {aboutTranslations.certification.title[language]}
             </motion.h2>
-            <div className="flex justify-center items-center min-h-[500px]">
+            <div className="flex justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                whileHover={{ 
-                  rotateY: 10,
-                  rotateX: 10,
-                  scale: 1.05
-                }}
-                className="bg-white p-12 rounded-3xl shadow-2xl transform perspective-1000 hover:shadow-[#FFCC0D]/30"
+                whileHover={{ scale: 1.05 }}
+                className="bg-white p-12 rounded-3xl shadow-2xl transform hover:shadow-[#FFCC0D]/30"
               >
-                <div className="text-center space-y-8 flex flex-col justify-center">
-                  <Image
-                    src="/images/iso.png"
-                    alt="ISO 9001"
-                    width={300}
-                    height={400}
-                    className="mx-auto transform transition-transform duration-500 hover:scale-110"
-                  />
+                <div className="text-center space-y-8">
+                  <div className="relative transform transition-all duration-300 hover:scale-105">
+                    <Image
+                      src="/images/iso.png"
+                      alt="ISO 9001"
+                      width={300}
+                      height={400}
+                      className="mx-auto"
+                    />
+                  </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#FFCC0D] to-yellow-500 bg-clip-text text-transparent">
                       {aboutTranslations.certification.iso9001.title[language]}
@@ -178,17 +176,20 @@ export default function About() {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: num * 0.2 }}
-                    className="group relative transform-gpu flex items-center"
+                    transition={{ duration: 0.6, delay: num * 0.1 }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      transition: { duration: 0.3 }
+                    }}
+                    className="relative bg-white rounded-3xl shadow-xl overflow-hidden flex items-center justify-center h-full"
                   >
-                    <div className="absolute inset-0 bg-[#FFCC0D] rounded-3xl transform -rotate-6 transition-transform duration-300 group-hover:rotate-0" />
-                    <div className="relative bg-white p-8 rounded-3xl shadow-xl transition-all duration-300 group-hover:translate-y-1 w-full">
+                    <div className="p-8 flex items-center justify-center">
                       <Image
                         src={`/images/reward_${num}.png`}
                         alt={`Award ${num}`}
                         width={400}
                         height={400}
-                        className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-auto transform transition-transform duration-300 hover:scale-105 object-contain"
                       />
                     </div>
                   </motion.div>

@@ -14,23 +14,23 @@ function ParkingScene({ step, setStep }: { step: number; setStep: React.Dispatch
   useFrame(() => {
     if (carRef.current) {
       if (step === 1) {
-        carRef.current.position.z += 0.05; // Mobil bergerak maju ke depan
-        if (carRef.current.position.z >= -1) setStep(2); // Berhenti di depan gerbang
+        carRef.current.position.z += 0.05;
+        if (carRef.current.position.z >= -1) setStep(2);
       } else if (step === 3) {
-        carRef.current.position.z += 0.05; // Mobil melanjutkan perjalanan
-        if (carRef.current.position.z >= 3) setStep(4); // Masuk ke area parkir
+        carRef.current.position.z += 0.05; 
+        if (carRef.current.position.z >= 3) setStep(4);
       }
     }
 
     if (gateRef.current && step === 2) {
-      gateRef.current.rotation.x -= 0.02; // Gerbang terbuka
-      if (gateRef.current.rotation.x <= -Math.PI / 4) setStep(3); // Lanjutkan ke langkah berikutnya
+      gateRef.current.rotation.x -= 0.02;
+      if (gateRef.current.rotation.x <= -Math.PI / 4) setStep(3);
     }
 
     if (cameraRef.current) {
       if (step === 0) {
-        cameraRef.current.position.set(0, 10, 15); // Posisi awal kamera lebih tinggi dan jauh
-        cameraRef.current.lookAt(0, 0, 0); // Mengarah ke tengah area
+        cameraRef.current.position.set(0, 10, 15);
+        cameraRef.current.lookAt(0, 0, 0);
       } else if (step === 1) {
         if (carRef.current) {
           cameraRef.current.position.lerp(

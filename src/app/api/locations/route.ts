@@ -36,10 +36,8 @@ export async function GET() {
         const baseUrl = process.env.NEXT_PUBLIC_SKY_API_URL;
         const timestamp = process.env.NEXT_PUBLIC_SKY_TIME_STAMP;
 
-        // Generate signature first
         const signatureData = await generateSignature();
 
-        // Get locations
         const locationsResponse = await fetch(`${baseUrl}/v1/partner/get-alllocation`, {
             method: "POST",
             headers: {

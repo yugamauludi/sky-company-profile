@@ -10,10 +10,10 @@ const ScrollIndicator = () => {
       const position = window.scrollY;
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       const scrollTrackWidth = window.innerWidth * 0.8;
-      const carWidth = 150;
-      const maxTranslateX = scrollTrackWidth - carWidth;
+      const carWidth = 100;
+      const maxTranslateX = scrollTrackWidth - (carWidth / 2);
       const scrollPercentage = (position / maxScroll);
-      const translateX = scrollPercentage * maxTranslateX;
+      const translateX = Math.min(scrollPercentage * maxTranslateX, maxTranslateX);
       setScrollPosition(translateX);
     };
 
@@ -32,21 +32,21 @@ const ScrollIndicator = () => {
           <div 
             className="absolute top-0 left-0 h-full bg-[#FFCC0D] transition-all duration-300"
             style={{
-              width: `${scrollPosition}px`
+              width: `${(scrollPosition / (window.innerWidth * 0.8 - 50)) * 100}%`
             }}
           />
           <div 
             className="absolute top-0 right-0 h-full bg-gray-200/30 transition-all duration-300"
             style={{
-              width: `calc(100% - ${scrollPosition}px)`
+              width: `${Math.max(0, 100 - ((scrollPosition / (window.innerWidth * 0.8 - 50)) * 100))}%`
             }}
           />
           <Image
             src="/images/car.png" 
             alt="Scroll Indicator"
-            width={150}
-            height={75}
-            className="transform transition-transform duration-300 absolute -top-12"
+            width={100}
+            height={50}
+            className="transform transition-transform duration-300 absolute -top-8"
             style={{
               transform: `translateX(${scrollPosition}px)`,
             }}

@@ -25,7 +25,6 @@ export default function Services() {
 
   const scroll = (direction: "left" | "right") => {
     if (carouselRef.current) {
-      // Menggunakan lebar kartu (280px) + gap (24px) untuk scroll yang lebih smooth
       const cardWidth = 280;
       const cardGap = 24;
       const scrollAmount = direction === "left" ? -(cardWidth + cardGap) : (cardWidth + cardGap);
