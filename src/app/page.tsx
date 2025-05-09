@@ -91,7 +91,7 @@ export default function Home() {
           <div 
             className="absolute inset-0 top-24 z-0"
             style={{
-              backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)), url("/images/bg-home.jpeg")',
+              backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)), url("/images/hero.jpg")',
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
