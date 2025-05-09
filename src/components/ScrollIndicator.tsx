@@ -7,6 +7,7 @@ const ScrollIndicator = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (typeof window === 'undefined') return;
       const position = window.scrollY;
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       const scrollTrackWidth = window.innerWidth * 0.8;
