@@ -39,7 +39,7 @@ export default function ModalPaymentMethod({ selectedCard, onClose }: ModalProps
               muted
               loop
               playsInline
-              className="w-full h-full object-contain opacity-30"
+              className="w-full h-full object-contain"
             >
               <source
                 src={
@@ -49,7 +49,7 @@ export default function ModalPaymentMethod({ selectedCard, onClose }: ModalProps
                     ? "/videos/prepaid-card-animation.mp4"
                     : selectedCard.title.includes("MPM")
                     ? "/videos/ewallet_mpm_animation.mp4"
-                    : "/videos/ewallet_cpm_animation.mp4"
+                    : "/videos/member.mp4"
                 }
                 type="video/mp4"
               />

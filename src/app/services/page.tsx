@@ -140,13 +140,13 @@ export default function Services() {
                   },
                   {
                     icon: "/images/ewallet.png",
-                    alt: "E-wallet MPM",
+                    alt: "QRIS MPM",
                     title: servicesTranslations.technology.ewallet_mpm.title[language],
                     description: servicesTranslations.technology.ewallet_mpm.description[language],
                   },
                   {
                     icon: "/images/ewallet.png",
-                    alt: "E-wallet CPM",
+                    alt: "QRIS CPM",
                     title: servicesTranslations.technology.ewallet_cpm.title[language],
                     description: servicesTranslations.technology.ewallet_cpm.description[language],
                   }

@@ -39,7 +39,7 @@ const Navbar = () => {
               height={45}
               className="h-auto hover:scale-110 transition-transform"
             />
-            <span className="text-xl font-bold text-gray-800">SKY Parking</span>
+            <span className="text-xl font-bold text-gray-800">Sky Parking</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">

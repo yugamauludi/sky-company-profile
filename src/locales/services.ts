@@ -1,18 +1,18 @@
 export const servicesTranslations = {
   hero: {
     title: {
-      en: "SKY PARKING Future Parking Solution",
-      id: "SKY PARKING Solusi Parkir Masa Depan",
+      en: "Sky Parking Future Parking Solution",
+      id: "Sky Parking Solusi Parkir Masa Depan",
     },
     subtitle: {
-      en: "Make every journey more convenient with SKY Parking, the parking choice for a better future.",
-      id: "Jadikan setiap perjalanan Anda lebih nyaman dengan SKY Parking tempat parkir pilihan untuk masa depan yang lebih baik.",
+      en: "Make every journey more convenient with Sky Parking, the parking choice for a better future.",
+      id: "Jadikan setiap perjalanan Anda lebih nyaman dengan Sky Parking tempat parkir pilihan untuk masa depan yang lebih baik.",
     },
   },
   technology: {
     title: {
-      id: "Teknologi SKY Parking",
-      en: "SKY Parking Technology"
+      id: "Teknologi Sky Parking",
+      en: "Sky Parking Technology"
     },
     qrisTap: {
       title: {
@@ -30,8 +30,8 @@ export const servicesTranslations = {
         en: "QRIS Payment"
       },
       description: {
-        id: "Pembayaran parkir di SKY Parking lebih mudah dengan metode pembayaran QRIS. Cukup scan kode QR dan nikmati kemudahannya tanpa perlu membawa uang tunai dengan jaminan keamanan.",
-        en: "Parking payment at SKY Parking is easier with QRIS payment method. Simply scan the QR code and enjoy the convenience without having to carry cash and with guaranteed security."
+        id: "Pembayaran parkir di Sky Parking lebih mudah dengan metode pembayaran QRIS. Cukup scan kode QR dan nikmati kemudahannya tanpa perlu membawa uang tunai dengan jaminan keamanan.",
+        en: "Parking payment at Sky Parking is easier with QRIS payment method. Simply scan the QR code and enjoy the convenience without having to carry cash and with guaranteed security."
       }
     },
     prepaid_card: {
@@ -40,28 +40,28 @@ export const servicesTranslations = {
         en: "Prepaid Card (E-money)"
       },
       description: {
-        id: "Maksimalkan kenyamanan parkir Anda dengan Kartu Prabayar. Solusi pembayaran parkir yang efisien dengan teknologi e-money, mendukung berbagai kartu seperti Flazz, e-Money Mandiri, Brizzi, dan TapCash. Cukup tap kartu untuk masuk dan keluar, tanpa perlu antri atau repot mencari uang tunai. Ideal untuk pengguna rutin dengan saldo yang dapat diisi ulang dan berlaku di seluruh area parkir SKY Parking.",
-        en: "Maximize your parking convenience with Prepaid Card. An efficient parking payment solution with e-money technology, supporting various cards such as Flazz, e-Money Mandiri, Brizzi, and TapCash. Simply tap your card to enter and exit, no queuing or hassle of finding cash. Ideal for regular users with rechargeable balance valid across all SKY Parking areas."
+        id: "Maksimalkan kenyamanan parkir Anda dengan Kartu Prabayar. Solusi pembayaran parkir yang efisien dengan teknologi e-money, mendukung berbagai kartu seperti Flazz, e-Money Mandiri, Brizzi, dan TapCash. Cukup tap kartu untuk masuk dan keluar, tanpa perlu antri atau repot mencari uang tunai. Ideal untuk pengguna rutin dengan saldo yang dapat diisi ulang dan berlaku di seluruh area parkir Sky Parking.",
+        en: "Maximize your parking convenience with Prepaid Card. An efficient parking payment solution with e-money technology, supporting various cards such as Flazz, e-Money Mandiri, Brizzi, and TapCash. Simply tap your card to enter and exit, no queuing or hassle of finding cash. Ideal for regular users with rechargeable balance valid across all Sky Parking areas."
       }
     },
     ewallet_mpm: {
       title: {
-        id: "E-wallet MPM (Merchant Presented Mode)",
-        en: "E-wallet MPM (Merchant Presented Mode)"
+        id: "QRIS MPM (Merchant Presented Mode)",
+        en: "QRIS MPM (Merchant Presented Mode)"
       },
       description: {
-        id: "Nikmati kemudahan pembayaran parkir dengan scan QR code yang tersedia di gerbang keluar. Kami telah bekerja sama dengan berbagai e-wallet seperti OVO, GoPay, dan Nobu Bank untuk memudahkan transaksi Anda.",
-        en: "Enjoy convenient parking payment by scanning the QR code available at the exit gate. We have partnered with various e-wallets such as OVO, GoPay, and Nobu Bank to facilitate your transactions."
+        id: "Nikmati kemudahan pembayaran parkir dengan scan QR code yang tersedia di gerbang keluar. Kami telah bekerja sama dengan berbagai QRIS seperti OVO, GoPay, dan Nobu Bank untuk memudahkan transaksi Anda.",
+        en: "Enjoy convenient parking payment by scanning the QR code available at the exit gate. We have partnered with various QRIS such as OVO, GoPay, and Nobu Bank to facilitate your transactions."
       }
     },
     ewallet_cpm: {
       title: {
-        id: "E-wallet CPM (Customer Presented Mode)",
-        en: "E-wallet CPM (Customer Presented Mode)"
+        id: "QRIS CPM (Customer Presented Mode)",
+        en: "QRIS CPM (Customer Presented Mode)"
       },
       description: {
-        id: "Tunjukkan QR code dari aplikasi e-wallet Anda untuk pembayaran yang lebih cepat. Metode ini mendukung berbagai aplikasi e-wallet populer di Indonesia untuk pengalaman parkir yang lebih nyaman.",
-        en: "Show the QR code from your e-wallet application for faster payment. This method supports various popular e-wallet applications in Indonesia for a more convenient parking experience."
+        id: "Tunjukkan QR code dari aplikasi QRIS Anda untuk pembayaran yang lebih cepat. Metode ini mendukung berbagai aplikasi QRIS populer di Indonesia untuk pengalaman parkir yang lebih nyaman.",
+        en: "Show the QR code from your QRIS application for faster payment. This method supports various popular QRIS applications in Indonesia for a more convenient parking experience."
       }
     },
     member: {
@@ -89,8 +89,8 @@ export const servicesTranslations = {
       en: "User-friendly and Realtime Dashboard"
     },
     description: {
-      id: "Saksikan dunia parkir dalam genggaman Anda dengan data real-time yang disajikan langsung dari lapangan. Pelanggan kami dapat dengan mudah melihat informasi real-time, membuat keputusan cerdas, dan mengoptimalkan pengalaman parkir mereka. SKY Parking, di mana setiap detail diatur dengan sempurna untuk memastikan pengalaman parkir yang tak terlupakan!",
-      en: "Witness the parking world in the palm of your hand with real-time data presented directly from the field. Our customers can easily view real-time information, make smart decisions, and optimize their parking experience. SKY Parking, where every detail is perfectly arranged to ensure an unforgettable parking experience!"
+      id: "Saksikan dunia parkir dalam genggaman Anda dengan data real-time yang disajikan langsung dari lapangan. Pelanggan kami dapat dengan mudah melihat informasi real-time, membuat keputusan cerdas, dan mengoptimalkan pengalaman parkir mereka. Sky Parking, di mana setiap detail diatur dengan sempurna untuk memastikan pengalaman parkir yang tak terlupakan!",
+      en: "Witness the parking world in the palm of your hand with real-time data presented directly from the field. Our customers can easily view real-time information, make smart decisions, and optimize their parking experience. Sky Parking, where every detail is perfectly arranged to ensure an unforgettable parking experience!"
     }
   },
   collaboration: {

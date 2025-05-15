@@ -1,8 +1,8 @@
 export const aboutTranslations = {
   hero: {
     title: {
-      id: "PT. SKY PARKING UTAMA",
-      en: "PT. SKY PARKING UTAMA"
+      id: "PT. Sky Parking Utama",
+      en: "PT. Sky Parking Utama"
     },
     description: {
       id: "Sky Parking adalah salah satu operator tempat parkir terbaik di Indonesia. Perusahaan ini telah berkembang dari awal yang sederhana menjadi salah satu perusahaan terkemuka di bidangnya. Perusahaan ini didirikan berdasarkan semangat profesionalisme dan keunggulan produk, menciptakan kualitas yang tak tertandingi dalam berbagai aspek bisnisnya.",
