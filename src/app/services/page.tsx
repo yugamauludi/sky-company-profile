@@ -27,10 +27,11 @@ export default function Services() {
     if (carouselRef.current) {
       const cardWidth = 280;
       const cardGap = 24;
-      const scrollAmount = direction === "left" ? -(cardWidth + cardGap) : (cardWidth + cardGap);
-      carouselRef.current.scrollBy({ 
-        left: scrollAmount, 
-        behavior: "smooth" 
+      const scrollAmount =
+        direction === "left" ? -(cardWidth + cardGap) : cardWidth + cardGap;
+      carouselRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
       });
     }
   };
@@ -39,16 +40,17 @@ export default function Services() {
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
         {/* Hero Section dengan Background Image dan Gradient Overlay */}
-        <section 
+        <section
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
           style={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/hero2.jpg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            backgroundImage:
+              'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/hero2.jpg")',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
           }}
         >
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -66,12 +68,14 @@ export default function Services() {
               transition={{ delay: 0.5 }}
               className="mt-12"
             >
-              <button 
+              <button
                 onClick={() => {
-                  const targetSection = document.querySelector('#technology-section');
-                  targetSection?.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
+                  const targetSection = document.querySelector(
+                    "#technology-section"
+                  );
+                  targetSection?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
                   });
                 }}
                 className="bg-[#FFCC0D] text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-400 transition-colors duration-300 transform hover:scale-105"
@@ -83,7 +87,10 @@ export default function Services() {
         </section>
 
         {/* Technology Section dengan Card 3D Effect */}
-        <section id="technology-section" className="py-24 bg-gradient-to-b from-gray-900 to-gray-800">
+        <section
+          id="technology-section"
+          className="py-24 bg-gradient-to-b from-gray-900 to-gray-800"
+        >
           <div className="container mx-auto px-4 max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -102,20 +109,42 @@ export default function Services() {
                 onClick={() => scroll("left")}
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#FFCC0D] p-3 rounded-full shadow-lg hover:bg-yellow-400 transition-colors"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 19.5L8.25 12l7.5-7.5"
+                  />
                 </svg>
               </button>
               <button
                 onClick={() => scroll("right")}
                 className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#FFCC0D] p-3 rounded-full shadow-lg hover:bg-yellow-400 transition-colors"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
                 </svg>
               </button>
 
-              <div 
+              <div
                 ref={carouselRef}
                 className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scroll-smooth no-scrollbar"
               >
@@ -123,33 +152,59 @@ export default function Services() {
                   {
                     icon: "/images/tap-to-pay.png",
                     alt: "QRIS Tap",
-                    title: servicesTranslations.technology.qrisTap.title[language],
-                    description: servicesTranslations.technology.qrisTap.description[language],
+                    title:
+                      servicesTranslations.technology.qrisTap.title[language],
+                    description:
+                      servicesTranslations.technology.qrisTap.description[
+                        language
+                      ],
                   },
                   {
                     icon: "/images/debit-card.png",
                     alt: "Prepaid Card",
-                    title: servicesTranslations.technology.prepaid_card.title[language],
-                    description: servicesTranslations.technology.prepaid_card.description[language],
+                    title:
+                      servicesTranslations.technology.prepaid_card.title[
+                        language
+                      ],
+                    description:
+                      servicesTranslations.technology.prepaid_card.description[
+                        language
+                      ],
                   },
                   {
                     icon: "/images/id-card.png",
                     alt: "Member Sky Parking",
-                    title: servicesTranslations.technology.member.title[language],
-                    description: servicesTranslations.technology.member.description[language],
+                    title:
+                      servicesTranslations.technology.member.title[language],
+                    description:
+                      servicesTranslations.technology.member.description[
+                        language
+                      ],
                   },
                   {
                     icon: "/images/ewallet.png",
                     alt: "QRIS MPM",
-                    title: servicesTranslations.technology.ewallet_mpm.title[language],
-                    description: servicesTranslations.technology.ewallet_mpm.description[language],
+                    title:
+                      servicesTranslations.technology.ewallet_mpm.title[
+                        language
+                      ],
+                    description:
+                      servicesTranslations.technology.ewallet_mpm.description[
+                        language
+                      ],
                   },
                   {
                     icon: "/images/ewallet.png",
                     alt: "QRIS CPM",
-                    title: servicesTranslations.technology.ewallet_cpm.title[language],
-                    description: servicesTranslations.technology.ewallet_cpm.description[language],
-                  }
+                    title:
+                      servicesTranslations.technology.ewallet_cpm.title[
+                        language
+                      ],
+                    description:
+                      servicesTranslations.technology.ewallet_cpm.description[
+                        language
+                      ],
+                  },
                 ].map((card, index) => (
                   <motion.div
                     key={index}
@@ -188,49 +243,42 @@ export default function Services() {
         <section className="py-24 bg-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/images/parking-lot.jpg')] opacity-20 bg-cover bg-center bg-no-repeat"></div>
           <div className="container mx-auto px-4 max-w-7xl relative">
-            <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="flex flex-col gap-16">
               <motion.div
                 initial={{ opacity: 3, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="lg:w-1/2 space-y-8"
+                className="space-y-8"
               >
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
                   {servicesTranslations.dashboard.title[language]}
                 </h2>
                 <div className="w-20 h-1 bg-[#FFCC0D] rounded-full"></div>
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="w-full"
+                >
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-[#FFCC0D] to-yellow-500 rounded-2xl blur opacity-20 animate-pulse"></div>
+                    <div className="relative bg-white rounded-2xl shadow-2xl p-8 transform hover:scale-105 transition-transform duration-500">
+                      <Image
+                        src="/images/dashboard_image.png"
+                        alt="Dashboard"
+                        width={1200} // Ubah ukuran width menjadi lebih besar
+                        height={600} // Ubah ukuran height menjadi lebih besar
+                        className="w-full h-auto rounded-lg"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
                   {servicesTranslations.dashboard.subtitle[language]}
                 </h3>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   {servicesTranslations.dashboard.description[language]}
                 </p>
-                {/* <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-[#FFCC0D] text-black px-8 py-4 rounded-full text-lg font-bold mt-8 hover:bg-yellow-400 transition-colors duration-300"
-                >
-                  Lihat Demo
-                </motion.button> */}
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="lg:w-1/2"
-              >
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-[#FFCC0D] to-yellow-500 rounded-2xl blur opacity-20 animate-pulse"></div>
-                  <div className="relative bg-white rounded-2xl shadow-2xl p-8 transform hover:scale-105 transition-transform duration-500">
-                    <Image
-                      src="/icons/chart.png"
-                      alt="Dashboard"
-                      width={600}
-                      height={400}
-                      className="w-full h-auto rounded-lg"
-                    />
-                  </div>
-                </div>
               </motion.div>
             </div>
           </div>
@@ -250,30 +298,35 @@ export default function Services() {
               </h2>
               <div className="w-24 h-1 bg-[#FFCC0D] mx-auto rounded-full"></div>
             </motion.div>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 place-items-center">
-              {servicesTranslations.collaboration.items[language].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileHover={{
-                    scale: 1.1,
-                    rotateZ: 5,
-                  }}
-                  className="bg-white/10 backdrop-blur-lg p-6 rounded-xl text-center w-full h-24 flex items-center justify-center transform transition-all duration-300 hover:shadow-lg hover:shadow-[#FFCC0D]/20 border border-white/10"
-                >
-                  <p className="font-bold text-lg text-white">{item}</p>
-                </motion.div>
-              ))}
+              {servicesTranslations.collaboration.items[language].map(
+                (item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileHover={{
+                      scale: 1.1,
+                      rotateZ: 5,
+                    }}
+                    className="bg-white/10 backdrop-blur-lg p-6 rounded-xl text-center w-full h-24 flex items-center justify-center transform transition-all duration-300 hover:shadow-lg hover:shadow-[#FFCC0D]/20 border border-white/10"
+                  >
+                    <p className="font-bold text-lg text-white">{item}</p>
+                  </motion.div>
+                )
+              )}
             </div>
           </div>
         </section>
 
         {/* Modal Component */}
-        <Modal selectedCard={selectedCard} onClose={() => setSelectedCard(null)} />
+        <Modal
+          selectedCard={selectedCard}
+          onClose={() => setSelectedCard(null)}
+        />
       </main>
     </div>
   );
