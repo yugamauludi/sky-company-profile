@@ -20,8 +20,8 @@ export const commonTranslations = {
   footer: {
     company: {
       title: {
-        id: "PT Sky Parking Indonesia",
-        en: "PT Sky Parking Indonesia"
+        id: "PT Sky Parking Utama",
+        en: "PT Sky Parking Utama"
       },
       description: {
         id: "Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Kami menghadirkan sistem parkir berbasis teknologi untuk meningkatkan efisiensi, keamanan, dan kenyamanan di berbagai area komersial dan publik.",
@@ -47,8 +47,8 @@ export const commonTranslations = {
       }
     },
     copyright: {
-      id: "Hak Cipta © 2024 PT Sky Parking Indonesia. Seluruh hak dilindungi.",
-      en: "Copyright © 2024 PT Sky Parking Indonesia. All rights reserved."
+      id: "Hak Cipta © 2024 PT Sky Parking Utama. Seluruh hak dilindungi.",
+      en: "Copyright © 2024 PT Sky Parking Utama. All rights reserved."
     }
   }
 };
