@@ -12,6 +12,42 @@ export const metadata: Metadata = {
   icons: {
     icon: "/images/logo.png",
   },
+  // Open Graph meta tags untuk WhatsApp dan social media
+  openGraph: {
+    title: "SKY PARKING UTAMA",
+    description:
+      "Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Sistem parkir berbasis teknologi untuk efisiensi, keamanan, dan kenyamanan.",
+    images: [
+      {
+        url: "/images/logo.png", // Ganti dengan gambar thumbnail yang sesuai
+        width: 1200,
+        height: 630,
+        alt: "SKY PARKING UTAMA",
+      },
+    ],
+    url: "https://skyparking.co.id", // Ganti dengan URL website Anda
+    type: "website",
+    siteName: "SKY PARKING UTAMA",
+    locale: "id_ID",
+  },
+  // Twitter Card meta tags
+  twitter: {
+    card: "summary_large_image",
+    title: "SKY PARKING UTAMA",
+    description:
+      "Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Sistem parkir berbasis teknologi untuk efisiensi, keamanan, dan kenyamanan.",
+    images: ["/images/logo.png"], // Ganti dengan gambar thumbnail yang sesuai
+  },
+  // Additional meta tags
+  keywords:
+    "parkir, parking, solusi parkir, sistem parkir, teknologi parkir, Indonesia, Sky Parking",
+  authors: [{ name: "SKY PARKING UTAMA" }],
+  creator: "SKY PARKING UTAMA",
+  publisher: "SKY PARKING UTAMA",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -20,9 +56,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="id">
+      {" "}
+      {/* Ganti ke bahasa Indonesia */}
       <head>
         <link rel="icon" type="image/png" href="/images/logo.png" />
+        {/* Meta tags tambahan untuk WhatsApp */}
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="theme-color" content="#ffffff" />
       </head>
       <body>
         <LanguageProvider>
