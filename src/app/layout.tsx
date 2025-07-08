@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/src/components/Footer";
 import Navbar from "@/src/components/Navbar";
-import { LanguageProvider } from '@/src/context/LanguageContext';
+import { LanguageProvider } from "@/src/context/LanguageContext";
 import ScrollIndicator from "@/src/components/ScrollIndicator";
 
 export const metadata: Metadata = {
-  title: "Sky Company",
-  description: "Your trusted business partner",
+  title: "SKY PARKING UTAMA",
+  description:
+    "perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Kami menghadirkan sistem parkir berbasis teknologi untuk meningkatkan efisiensi, keamanan, dan kenyamanan di berbagai area komersial dan publik",
   icons: {
     icon: "/images/logo.png",
   },
