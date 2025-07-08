@@ -75,7 +75,7 @@ export default function Contact() {
       });
     } catch (error) {
       console.log("ERROR SEND MESSAGE:", error);
-      
+
       setSubmitStatus({
         type: "error",
         message: contactTranslations.error[language],
@@ -99,7 +99,7 @@ export default function Contact() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30" />
         </div>
-        
+
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -107,7 +107,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#FFCC0D] to-[#FFA500]">
+            <h1 className="text-5xl md:text-7xl font-bold mb-2 leading-relaxed bg-clip-text text-transparent bg-gradient-to-r from-[#FFCC0D] to-[#FFA500]">
               {contactTranslations.title[language]}
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto">
@@ -161,20 +161,21 @@ export default function Contact() {
                     icon: "📞",
                     title: "Phone",
                     content: "(+62)21 55764058",
-                    gradient: "from-blue-500 to-blue-600"
+                    gradient: "from-blue-500 to-blue-600",
                   },
                   {
                     icon: <FaEnvelope className="text-[#FFCC0D] text-4xl" />,
                     title: "Email",
                     content: "business.development@skyparking.co.id",
-                    gradient: "from-green-500 to-green-900"
+                    gradient: "from-green-500 to-green-900",
                   },
                   {
                     icon: "📍",
                     title: "Address",
-                    content: "Ruko pinangsia karawaci Office park blok H no 20, Lippo Village, Karawaci, Tangerang, Banten",
-                    gradient: "from-red-500 to-red-600"
-                  }
+                    content:
+                      "Ruko pinangsia karawaci Office park blok H no 20, Lippo Village, Karawaci, Tangerang, Banten",
+                    gradient: "from-red-500 to-red-600",
+                  },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -182,11 +183,15 @@ export default function Contact() {
                     className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <div className="flex items-start gap-4">
-                      <div className={`text-4xl bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}>
+                      <div
+                        className={`text-4xl bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}
+                      >
                         {item.icon}
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+                        <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                          {item.title}
+                        </h3>
                         <p className="text-gray-600">{item.content}</p>
                       </div>
                     </div>
@@ -206,12 +211,20 @@ export default function Contact() {
                     </label>
                     <select
                       value={formData.title}
-                      onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, title: e.target.value })
+                      }
                       className="w-full h-[59px] px-5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300"
                     >
-                      <option value="mr">{contactTranslations.titleOptions.mr[language]}</option>
-                      <option value="mrs">{contactTranslations.titleOptions.mrs[language]}</option>
-                      <option value="ms">{contactTranslations.titleOptions.ms[language]}</option>
+                      <option value="mr">
+                        {contactTranslations.titleOptions.mr[language]}
+                      </option>
+                      <option value="mrs">
+                        {contactTranslations.titleOptions.mrs[language]}
+                      </option>
+                      <option value="ms">
+                        {contactTranslations.titleOptions.ms[language]}
+                      </option>
                     </select>
                   </div>
 
@@ -220,13 +233,16 @@ export default function Contact() {
                     className="relative group"
                   >
                     <label className="block text-gray-700 mb-2 font-medium">
-                      {contactTranslations.name[language]}<span className="text-red-500">*</span>
+                      {contactTranslations.name[language]}
+                      <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       className="w-full h-[59px] px-5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300"
                     />
                   </motion.div>
@@ -239,13 +255,16 @@ export default function Contact() {
                     className="relative group"
                   >
                     <label className="block text-gray-700 mb-2 font-medium">
-                      {contactTranslations.email[language]}<span className="text-red-500">*</span>
+                      {contactTranslations.email[language]}
+                      <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"
                       required
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300"
                     />
                   </motion.div>
@@ -255,13 +274,16 @@ export default function Contact() {
                     className="relative group"
                   >
                     <label className="block text-gray-700 mb-2 font-medium">
-                      {contactTranslations.phone[language]}<span className="text-red-500">*</span>
+                      {contactTranslations.phone[language]}
+                      <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
                       required
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
                       className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300"
                     />
                   </motion.div>
@@ -273,13 +295,16 @@ export default function Contact() {
                   className="relative group"
                 >
                   <label className="block text-gray-700 mb-2 font-medium">
-                    {contactTranslations.company[language]}<span className="text-red-500">*</span>
+                    {contactTranslations.company[language]}
+                    <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
                     required
                     value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, company: e.target.value })
+                    }
                     className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300"
                   />
                 </motion.div>
@@ -290,12 +315,15 @@ export default function Contact() {
                   className="relative group"
                 >
                   <label className="block text-gray-700 mb-2 font-medium">
-                    {contactTranslations.message[language]}<span className="text-red-500">*</span>
+                    {contactTranslations.message[language]}
+                    <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     required
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     rows={4}
                     className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#FFCC0D] focus:ring-2 focus:ring-[#FFCC0D]/20 transition-all duration-300 resize-none"
                   />
@@ -309,9 +337,10 @@ export default function Contact() {
                   disabled={isSubmitting}
                   className={`
                     w-full py-4 px-8 rounded-xl font-bold text-lg
-                    ${isSubmitting 
-                      ? 'bg-gray-400 cursor-not-allowed' 
-                      : 'bg-gradient-to-r from-[#FFCC0D] to-[#FFA500] hover:shadow-lg hover:shadow-[#FFCC0D]/20'
+                    ${
+                      isSubmitting
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-gradient-to-r from-[#FFCC0D] to-[#FFA500] hover:shadow-lg hover:shadow-[#FFCC0D]/20"
                     }
                     transition-all duration-300
                   `}
@@ -345,9 +374,10 @@ export default function Contact() {
                       exit={{ opacity: 0, y: -20 }}
                       className={`
                         p-4 rounded-xl text-center font-medium
-                        ${submitStatus.type === "success"
-                          ? "bg-green-50 text-green-700 border border-green-200"
-                          : "bg-red-50 text-red-700 border border-red-200"
+                        ${
+                          submitStatus.type === "success"
+                            ? "bg-green-50 text-green-700 border border-green-200"
+                            : "bg-red-50 text-red-700 border border-red-200"
                         }
                       `}
                     >
