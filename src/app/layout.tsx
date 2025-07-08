@@ -65,6 +65,30 @@ export default function RootLayout({
         <meta property="og:image:type" content="image/jpeg" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="theme-color" content="#ffffff" />
+
+        <meta property="og:title" content="SKY PARKING UTAMA" />
+        <meta
+          property="og:description"
+          content="Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Sistem parkir berbasis teknologi untuk efisiensi, keamanan, dan kenyamanan."
+        />
+        <meta property="og:image" content="/images/logo.png" />
+        {/* <meta property="og:image:width" content="1200" /> */}
+        {/* <meta property="og:image:height" content="630" /> */}
+        <meta property="og:image:alt" content="imageAlt" />
+        <meta property="og:url" content="https://skyparking.co.id/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Sky Pakring Utama" />
+        {/* Twitter Card Meta Tags (also used by some platforms) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Sky Parking Utama" />
+        <meta
+          name="twitter:description"
+          content="Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Sistem parkir berbasis teknologi untuk efisiensi, keamanan, dan kenyamanan."
+        />
+        <meta
+          name="twitter:image"
+          content="/images/logo.png"
+        />
       </head>
       <body>
         <LanguageProvider>
