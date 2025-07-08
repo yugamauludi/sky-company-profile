@@ -8,7 +8,7 @@ import ScrollIndicator from "@/src/components/ScrollIndicator";
 export const metadata: Metadata = {
   title: "SKY PARKING UTAMA",
   description:
-    "perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Kami menghadirkan sistem parkir berbasis teknologi untuk meningkatkan efisiensi, keamanan, dan kenyamanan di berbagai area komersial dan publik",
+    "Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Kami menghadirkan sistem parkir berbasis teknologi untuk meningkatkan efisiensi, keamanan, dan kenyamanan di berbagai area komersial dan publik",
   icons: {
     icon: "/images/logo.png",
   },
