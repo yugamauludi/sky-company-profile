@@ -49,6 +49,8 @@ export default function ModalPaymentMethod({ selectedCard, onClose }: ModalProps
                     ? "/videos/prepaid-card-animation.mp4"
                     : selectedCard.title.includes("MPM")
                     ? "/videos/ewallet_mpm_animation.mp4"
+                    : selectedCard.alt.includes("CPM")
+                    ? "/videos/ewallet_cpm_animation.mp4"
                     : "/videos/member.mp4"
                 }
                 type="video/mp4"

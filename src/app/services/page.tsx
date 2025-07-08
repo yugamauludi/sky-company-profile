@@ -80,7 +80,7 @@ export default function Services() {
                 }}
                 className="bg-[#FFCC0D] text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-400 transition-colors duration-300 transform hover:scale-105"
               >
-                Mulai Sekarang
+                {servicesTranslations.hero.button[language]}
               </button>
             </motion.div>
           </motion.div>

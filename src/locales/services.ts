@@ -8,6 +8,10 @@ export const servicesTranslations = {
       en: "Make every journey more convenient with Sky Parking, the parking choice for a better future.",
       id: "Jadikan setiap perjalanan Anda lebih nyaman dengan Sky Parking tempat parkir pilihan untuk masa depan yang lebih baik.",
     },
+    button: {
+      en: "Get Started",
+      id: "Mulai Sekarang",
+    }
   },
   technology: {
     title: {
@@ -36,12 +40,12 @@ export const servicesTranslations = {
     },
     prepaid_card: {
       title: {
-        id: "Kartu Prabayar (E-money)",
-        en: "Prepaid Card (E-money)"
+        id: "Kartu Prabayar (Pre-Paid Card)",
+        en: "Prepaid Card (Pre-Paid Card)"
       },
       description: {
-        id: "Maksimalkan kenyamanan parkir Anda dengan Kartu Prabayar. Solusi pembayaran parkir yang efisien dengan teknologi e-money, mendukung berbagai kartu seperti Flazz, e-Money Mandiri, Brizzi, dan TapCash. Cukup tap kartu untuk masuk dan keluar, tanpa perlu antri atau repot mencari uang tunai. Ideal untuk pengguna rutin dengan saldo yang dapat diisi ulang dan berlaku di seluruh area parkir Sky Parking.",
-        en: "Maximize your parking convenience with Prepaid Card. An efficient parking payment solution with e-money technology, supporting various cards such as Flazz, e-Money Mandiri, Brizzi, and TapCash. Simply tap your card to enter and exit, no queuing or hassle of finding cash. Ideal for regular users with rechargeable balance valid across all Sky Parking areas."
+        id: "Maksimalkan kenyamanan parkir Anda dengan Kartu Prabayar. Solusi pembayaran parkir yang efisien dengan teknologi Pre-Paid Card, mendukung berbagai kartu seperti Flazz, e-Money Mandiri, Brizzi, dan TapCash. Cukup tap kartu untuk masuk dan keluar, tanpa perlu antri atau repot mencari uang tunai. Ideal untuk pengguna rutin dengan saldo yang dapat diisi ulang dan berlaku di seluruh area parkir Sky Parking.",
+        en: "Maximize your parking convenience with Prepaid Card. An efficient parking payment solution with Pre-Paid Card technology, supporting various cards such as Flazz, e-Money Mandiri, Brizzi, and TapCash. Simply tap your card to enter and exit, no queuing or hassle of finding cash. Ideal for regular users with rechargeable balance valid across all Sky Parking areas."
       }
     },
     ewallet_mpm: {

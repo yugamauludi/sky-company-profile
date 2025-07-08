@@ -19,13 +19,13 @@ export const metadata: Metadata = {
       "Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Sistem parkir berbasis teknologi untuk efisiensi, keamanan, dan kenyamanan.",
     images: [
       {
-        url: "/images/logo.png", // Ganti dengan gambar thumbnail yang sesuai
+        url: "https://skyparking.co.id/images/logo.png", // URL ABSOLUT
         width: 1200,
         height: 630,
         alt: "SKY PARKING UTAMA",
       },
     ],
-    url: "https://skyparking.co.id", // Ganti dengan URL website Anda
+    url: "https://skyparking.co.id",
     type: "website",
     siteName: "SKY PARKING UTAMA",
     locale: "id_ID",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "SKY PARKING UTAMA",
     description:
       "Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Sistem parkir berbasis teknologi untuk efisiensi, keamanan, dan kenyamanan.",
-    images: ["/images/logo.png"], // Ganti dengan gambar thumbnail yang sesuai
+    images: ["https://skyparking.co.id/images/logo.png"], // URL ABSOLUT
   },
   // Additional meta tags
   keywords:
@@ -57,37 +57,37 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      {" "}
-      {/* Ganti ke bahasa Indonesia */}
       <head>
-        <link rel="icon" type="image/png" href="images/logo.png" />
+        <link rel="icon" type="image/png" href="/images/logo.png" />
         {/* Meta tags tambahan untuk WhatsApp */}
-        <meta property="og:image:type" content="images/logo.png" />
+        <meta property="og:image:type" content="image/png" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="theme-color" content="#ffffff" />
 
+        {/* Open Graph Meta Tags dengan URL absolut */}
         <meta property="og:title" content="SKY PARKING UTAMA" />
         <meta
           property="og:description"
           content="Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Sistem parkir berbasis teknologi untuk efisiensi, keamanan, dan kenyamanan."
         />
-        <meta property="og:image" content="images/logo.png" />
-        {/* <meta property="og:image:width" content="1200" /> */}
-        {/* <meta property="og:image:height" content="630" /> */}
-        <meta property="og:image:alt" content="imageAlt" />
+        <meta property="og:image" content="https://skyparking.co.id/images/logo.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="SKY PARKING UTAMA Logo" />
         <meta property="og:url" content="https://skyparking.co.id/" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Sky Pakring Utama" />
-        {/* Twitter Card Meta Tags (also used by some platforms) */}
+        <meta property="og:site_name" content="SKY PARKING UTAMA" />
+        
+        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sky Parking Utama" />
+        <meta name="twitter:title" content="SKY PARKING UTAMA" />
         <meta
           name="twitter:description"
           content="Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Sistem parkir berbasis teknologi untuk efisiensi, keamanan, dan kenyamanan."
         />
         <meta
           name="twitter:image"
-          content="images/logo.png"
+          content="https://skyparking.co.id/images/logo.png"
         />
       </head>
       <body>
