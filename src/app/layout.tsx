@@ -60,9 +60,9 @@ export default function RootLayout({
       {" "}
       {/* Ganti ke bahasa Indonesia */}
       <head>
-        <link rel="icon" type="image/png" href="/images/logo.png" />
+        <link rel="icon" type="image/png" href="images/logo.png" />
         {/* Meta tags tambahan untuk WhatsApp */}
-        <meta property="og:image:type" content="/images/logo.png" />
+        <meta property="og:image:type" content="images/logo.png" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="theme-color" content="#ffffff" />
 
@@ -71,7 +71,7 @@ export default function RootLayout({
           property="og:description"
           content="Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Sistem parkir berbasis teknologi untuk efisiensi, keamanan, dan kenyamanan."
         />
-        <meta property="og:image" content="/images/logo.png" />
+        <meta property="og:image" content="images/logo.png" />
         {/* <meta property="og:image:width" content="1200" /> */}
         {/* <meta property="og:image:height" content="630" /> */}
         <meta property="og:image:alt" content="imageAlt" />
@@ -87,7 +87,7 @@ export default function RootLayout({
         />
         <meta
           name="twitter:image"
-          content="/images/logo.png"
+          content="images/logo.png"
         />
       </head>
       <body>
