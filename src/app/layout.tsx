@@ -62,7 +62,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/png" href="/images/logo.png" />
         {/* Meta tags tambahan untuk WhatsApp */}
-        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:type" content="/images/logo.png" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="theme-color" content="#ffffff" />
 
