@@ -24,8 +24,8 @@ export const commonTranslations = {
         en: "PT Sky Parking Indonesia"
       },
       description: {
-        id: "Sky Parking adalah operator parkir terkemuka di Indonesia yang mengutamakan profesionalisme dan keunggulan layanan. Berkembang dari awal yang sederhana, kami terus berinovasi untuk memberikan kualitas terbaik dalam setiap aspek layanan parkir.",
-        en: "Sky Parking is a leading parking operator in Indonesia that prioritizes professionalism and service excellence. Growing from humble beginnings, we continue to innovate to deliver the best quality in every aspect of parking services."
+        id: "Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Kami menghadirkan sistem parkir berbasis teknologi untuk meningkatkan efisiensi, keamanan, dan kenyamanan di berbagai area komersial dan publik.",
+        en: "A modern and integrated parking solution provider in Indonesia. We provide technology-based parking systems to improve efficiency, security, and comfort in various commercial and public areas."
       }
     },
     contact: {
