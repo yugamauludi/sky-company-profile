@@ -8,8 +8,7 @@ _Website Profil Perusahaan Operator Parkir Profesional_
 
 ## 🌟 Tentang Sky Parking
 
-Sky Parking adalah operator parkir terkemuka di Indonesia yang mengutamakan profesionalisme dan keunggulan layanan. Berkembang dari awal yang sederhana, kami terus berinovasi untuk memberikan kualitas terbaik dalam setiap aspek layanan parkir.
-
+Perusahaan penyedia solusi perparkiran modern dan terintegrasi di Indonesia. Sistem parkir berbasis teknologi untuk efisiensi, keamanan, dan kenyamanan.
 ### ✨ Fitur Website
 
 - 📱 **Responsif** - Tampilan yang optimal di semua perangkat
