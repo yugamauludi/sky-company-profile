@@ -262,7 +262,7 @@ export default function Services() {
                 >
                   <div className="relative">
                     <div className="absolute -inset-4 bg-gradient-to-r from-[#FFCC0D] to-yellow-500 rounded-2xl blur opacity-20 animate-pulse"></div>
-                    <div className="relative bg-white rounded-2xl shadow-2xl p-8 transform hover:scale-105 transition-transform duration-500">
+                    <div className="relative bg-white rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
                       <Image
                         src="/images/dashboard_image.png"
                         alt="Dashboard"

@@ -60,5 +60,29 @@ export const aboutTranslations = {
       id: "Penghargaan",
       en: "Awards"
     }
+  },
+  evolution: {
+    title: {
+      id: "Evolusi Teknologi Parkir",
+      en: "Parking Technology Evolution"
+    }
+  },
+  statistics: {
+    title: {
+      id: "Pencapaian Kami",
+      en: "Our Achievements"
+    }
+  },
+  technology: {
+    title: {
+      id: "Inovasi Teknologi",
+      en: "Technology Innovation"
+    }
+  },
+  portfolio: {
+    title: {
+      id: "Portofolio Layanan",
+      en: "Service Portofolio"
+    }
   }
 };

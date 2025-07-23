@@ -1,0 +1,170 @@
+[
+    {
+        "src": "/images/additional_clients/aryaduta.png",
+        "alt": "Aryaduta Menteng",
+        "businessType": "Hotel & Leisure",
+        "since": "Mar 2019",
+        "Transaction": "15,000/month",
+        "parkingLots": 223
+    },
+    {
+        "src": "/images/additional_clients/collins.jpg",
+        "alt": "Collins Boulevard",
+        "businessType": "Malls",
+        "since": "May 2023",
+        "Transaction": "4,500/month",
+        "parkingLots": 453
+    },
+    {
+        "src": "/images/additional_clients/eastern_green.jpg",
+        "alt": "Eastern Green Bekasi",
+        "businessType": "Malls",
+        "since": "Dec 2021",
+        "Transaction": "8,500/month",
+        "parkingLots": 422
+    },
+    {
+        "src": "/images/additional_clients/gading_raya_golf.jpg",
+        "alt": "Gading Raya Golf",
+        "businessType": "Hotel & Leisure",
+        "since": "May 2023",
+        "Transaction": "20,500/month",
+        "parkingLots": 160
+    },
+    {
+        "src": "/images/additional_clients/komodo.jpg",
+        "alt": "Bandar Udara Internasional Komodo labuan Baju",
+        "businessType": "Government Public Transportation",
+        "since": "1 Jan 2024",
+        "Transaction": "35,000/month",
+        "parkingLots": 310
+    },
+    {
+        "src": "/images/additional_clients/lippo_karawaci.jpg",
+        "alt": "Lippo Karawaci",
+        "businessType": "Smart City",
+        "since": "Aug 2015",
+        "Transaction": "410,000/month",
+        "parkingLots": 11263
+    },
+    {
+        "src": "/images/additional_clients/Lippo_mall_puri.jpg",
+        "alt": "Lippo Mall Puri",
+        "businessType": "Malls",
+        "since": "Aug 2016",
+        "Transaction": "280,700/month",
+        "parkingLots": 3762
+    },
+    {
+        "src": "/images/additional_clients/living_plaza_puri.jpg",
+        "alt": "Living Plaza Puri",
+        "businessType": "Malls",
+        "since": "Oct 2023",
+        "Transaction": "12,800/month",
+        "parkingLots": 56
+    },
+    {
+        "src": "/images/additional_clients/LRT_cibubur.png",
+        "alt": "LRT City Cibubur",
+        "businessType": "Government Public Transportation",
+        "since": "Sept 2023",
+        "Transaction": "2,500/month",
+        "parkingLots": 190
+    },
+    {
+        "src": "/images/additional_clients/LRT_cikunir_2.png",
+        "alt": "Stasiun LRT Cikunir 2",
+        "businessType": "Government Public Transportation",
+        "since": "Oct 2023",
+        "Transaction": "1,100/month",
+        "parkingLots": 70
+    },
+    {
+        "src": "/images/additional_clients/LRT_ciracas.png",
+        "alt": "LRT City Ciracas Urban Signature",
+        "businessType": "Government Public Transportation",
+        "since": "Aug 2023",
+        "Transaction": "5,500/month",
+        "parkingLots": 390
+    },
+    {
+        "src": "/images/additional_clients/LRT_Jati_mulya_Bekasi.png",
+        "alt": "Stasiun LRT Jati Mulya",
+        "businessType": "Government Public Transportation",
+        "since": "Sep 2023",
+        "Transaction": "3,500/month",
+        "parkingLots": 160
+    },
+    {
+        "src": "/images/additional_clients/LRT_Jatibening.jpg",
+        "alt": "LRT City Jatibening Gateway Park",
+        "businessType": "Government Public Transportation",
+        "since": "Oct 2023",
+        "Transaction": "1,000/month",
+        "parkingLots": 80
+    },
+    {
+        "src": "/images/additional_clients/Mayapada_hospital.jpg",
+        "alt": "Mayapada Hospital Tangerang",
+        "businessType": "Healthcare & Education",
+        "since": "Dec 2019",
+        "Transaction": "25,000/month",
+        "parkingLots": 387
+    },
+    {
+        "src": "/images/additional_clients/orange_county.png",
+        "alt": "Orange County Cikarang",
+        "businessType": "Residential",
+        "since": "May 2021",
+        "Transaction": "30,000/month",
+        "parkingLots": 636
+    },
+    {
+        "src": "/images/additional_clients/OT_building.png",
+        "alt": "OT Building Headquarter",
+        "businessType": "Office Tower",
+        "since": "Jan 2020",
+        "Transaction": "15,000/month",
+        "parkingLots": 625
+    },
+    {
+        "src": "/images/additional_clients/royal_sentul.jpg",
+        "alt": "LRT City Sentul Royal Sentul Park",
+        "businessType": "Government Public Transportation",
+        "since": "Aug 2023",
+        "Transaction": "3,500/month",
+        "parkingLots": 752
+    },
+    {
+        "src": "/images/additional_clients/RSU_uki.png",
+        "alt": "RSU UKI Jakarta",
+        "businessType": "Healthcare & Education",
+        "since": "Aug 2023",
+        "Transaction": "65,000/month",
+        "parkingLots": 620
+    },
+    {
+        "src": "/images/additional_clients/Silom_MRCC.jpg",
+        "alt": "Siloam Hospitals MRCCC Semanggi",
+        "businessType": "Healthcare & Education",
+        "since": "Jun 2017",
+        "Transaction": "25,000/month",
+        "parkingLots": 160
+    },
+    {
+        "src": "/images/additional_clients/wisma_bca_foresta.png",
+        "alt": "Wisma BCA Foresta BSD",
+        "businessType": "Office Tower",
+        "since": "Apr 2022",
+        "Transaction": "18,000/month",
+        "parkingLots": 393
+    },
+    {
+        "src": "/images/additional_clients/yukata_suites.jpg",
+        "alt": "Yukata Suites Alam Sutera",
+        "businessType": "Residential",
+        "since": "Sept 2022",
+        "Transaction": "7,500/month",
+        "parkingLots": 215
+    }
+]

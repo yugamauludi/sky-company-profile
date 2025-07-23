@@ -21,14 +21,22 @@ export const homeTranslations = {
   },
   partners: {
     title: {
-      id: "Mitra Sky",
-      en: "Sky Partners"
+      en: "Our Trusted Partners",
+      id: "Mitra Terpercaya Kami"
+    },
+    subtitle: {
+      en: "Collaborating with industry leaders to deliver seamless parking solutions",
+      id: "Berkolaborasi dengan pemimpin industri untuk memberikan solusi parkir yang mulus"
     }
-  },
+  },  
   clients: {
     title: {
       id: "Klien Sky",
       en: "Sky Clients"
-    }
+    },
+    subtitle: {
+      en: "Trusted by leading establishments across various industries",
+      id: "Dipercaya oleh perusahaan terkemuka di berbagai industri"
+    }  
   }
 };
