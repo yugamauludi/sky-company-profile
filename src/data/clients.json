@@ -35,7 +35,7 @@
         "src": "/images/additional_clients/komodo.jpg",
         "alt": "Bandar Udara Internasional Komodo labuan Baju",
         "businessType": "Government Public Transportation",
-        "since": "1 Jan 2024",
+        "since": "Jan 2024",
         "Transaction": "35,000/month",
         "parkingLots": 310
     },
@@ -163,7 +163,7 @@
         "src": "/images/additional_clients/yukata_suites.jpg",
         "alt": "Yukata Suites Alam Sutera",
         "businessType": "Residential",
-        "since": "Sept 2022",
+        "since": "Sep 2022",
         "Transaction": "7,500/month",
         "parkingLots": 215
     }
