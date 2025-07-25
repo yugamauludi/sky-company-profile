@@ -77,6 +77,74 @@ export const aboutTranslations = {
     title: {
       id: "Inovasi Teknologi",
       en: "Technology Innovation"
+    },
+    items: {
+      lpr: {
+        title: {
+          id: "License Plate Recognition (LPR)",
+          en: "License Plate Recognition (LPR)"
+        },
+        description: {
+          id: "Teknologi pengenalan plat nomor otomatis untuk akses tanpa tiket",
+          en: "Automatic license plate recognition technology for ticketless access"
+        },
+        features: {
+          id: [
+            "Masuk Tanpa Tiket",
+            "Pembukaan Gerbang Otomatis",
+            "Pengenalan Real-time"
+          ],
+          en: [
+            "Ticketless Entry",
+            "Automatic Gate Opening",
+            "Real-time Recognition"
+          ]
+        }
+      },
+      membership: {
+        title: {
+          id: "Digital Membership",
+          en: "Digital Membership"
+        },
+        description: {
+          id: "Sistem keanggotaan digital dengan input nomor plat dan STNK",
+          en: "Digital membership system with license plate and vehicle registration input"
+        },
+        features: {
+          id: [
+            "Registrasi Digital",
+            "Deteksi Kendaraan Otomatis",
+            "Manfaat Member"
+          ],
+          en: [
+            "Digital Registration",
+            "Auto Vehicle Detection",
+            "Member Benefits"
+          ]
+        }
+      },
+      dashboard: {
+        title: {
+          id: "Command Center Dashboard",
+          en: "Command Center Dashboard"
+        },
+        description: {
+          id: "Pusat kontrol terpusat untuk monitoring semua lokasi parkir",
+          en: "Centralized control center for monitoring all parking locations"
+        },
+        features: {
+          id: [
+            "Monitoring Real-time",
+            "Dashboard Analitik",
+            "Kontrol Jarak Jauh"
+          ],
+          en: [
+            "Real-time Monitoring",
+            "Analytics Dashboard",
+            "Remote Control"
+          ]
+        }
+      }
     }
   },
   portfolio: {
